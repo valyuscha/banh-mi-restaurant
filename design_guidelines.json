@@ -1,0 +1,133 @@
+{
+  "theme": "LIGHT",
+  "archetype": "1 (Organic & Earthy)",
+  "concept": "Not every café is about coffee. Some are about slowing down. An analog, tactile, and warm digital space mimicking the physical feeling of a slow morning.",
+  "colors": {
+    "background": {
+      "default": "#FDFBF7",
+      "surface": "#F5F2EB",
+      "overlay": "rgba(44, 30, 22, 0.4)"
+    },
+    "text": {
+      "primary": "#2C1E16",
+      "secondary": "#5C4A3D",
+      "inverse": "#FDFBF7"
+    },
+    "brand": {
+      "primary": "#2C1E16",
+      "accent": "#C86F54",
+      "accent_hover": "#B35A3F",
+      "muted_green": "#8A9A86"
+    },
+    "border": {
+      "default": "rgba(44, 30, 22, 0.15)",
+      "focus": "#C86F54"
+    }
+  },
+  "typography": {
+    "fonts": {
+      "heading": "'Cormorant Garamond', serif",
+      "body": "'Outfit', sans-serif"
+    },
+    "sizes": {
+      "h1": "text-5xl sm:text-6xl tracking-tight leading-none",
+      "h2": "text-4xl sm:text-5xl tracking-tight leading-tight",
+      "h3": "text-2xl sm:text-3xl leading-snug",
+      "body_large": "text-lg sm:text-xl leading-relaxed",
+      "body": "text-base leading-relaxed",
+      "overline": "text-xs tracking-[0.2em] uppercase font-bold text-[#8A9A86]"
+    },
+    "google_fonts_url": "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap"
+  },
+  "layout_and_spacing": {
+    "section_padding": "py-20 sm:py-32",
+    "container": "max-w-7xl mx-auto px-6 sm:px-12",
+    "grid_patterns": {
+      "gallery": "grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 auto-rows-[300px]",
+      "bento_spans": [
+        "col-span-1 md:col-span-8 row-span-2",
+        "col-span-1 md:col-span-4 row-span-1",
+        "col-span-1 md:col-span-4 row-span-1"
+      ]
+    }
+  },
+  "components": {
+    "buttons": {
+      "primary": "inline-flex items-center justify-center px-8 py-3 rounded-full bg-[#C86F54] text-[#FDFBF7] font-sans font-medium transition-all hover:bg-[#B35A3F] hover:-translate-y-0.5",
+      "secondary": "inline-flex items-center justify-center px-8 py-3 rounded-full border border-[#2C1E16] text-[#2C1E16] font-sans font-medium transition-all hover:bg-[#2C1E16] hover:text-[#FDFBF7] hover:-translate-y-0.5"
+    },
+    "navigation": {
+      "wrapper": "fixed top-0 w-full z-50 backdrop-blur-xl bg-[#FDFBF7]/80 border-b border-[#2C1E16]/10 transition-all duration-300",
+      "links": "text-[#5C4A3D] hover:text-[#C86F54] font-sans font-medium transition-colors text-sm uppercase tracking-wider"
+    },
+    "menu_list": {
+      "container": "flex flex-col gap-4 max-w-3xl mx-auto",
+      "item": "flex items-end justify-between border-b border-dashed border-[#2C1E16]/20 pb-3",
+      "title": "font-serif text-xl sm:text-2xl text-[#2C1E16]",
+      "description": "font-sans text-sm text-[#5C4A3D] mt-1 block",
+      "price": "font-sans font-medium text-[#C86F54] text-lg sm:text-xl pl-4 whitespace-nowrap"
+    },
+    "offer_cards": {
+      "wrapper": "bg-[#F5F2EB] p-8 sm:p-10 rounded-3xl border border-[#2C1E16]/5 transition-transform hover:-translate-y-1",
+      "icon_wrapper": "w-12 h-12 rounded-full bg-[#FDFBF7] flex items-center justify-center text-[#C86F54] mb-6 shadow-sm"
+    },
+    "form": {
+      "input": "w-full bg-transparent border-b border-[#2C1E16]/30 px-0 py-3 font-sans text-[#2C1E16] placeholder:text-[#2C1E16]/40 focus:outline-none focus:border-[#C86F54] focus:ring-0 transition-colors rounded-none",
+      "select": "w-full bg-transparent border-b border-[#2C1E16]/30 px-0 py-3 font-sans text-[#2C1E16] focus:outline-none focus:border-[#C86F54] focus:ring-0 transition-colors rounded-none appearance-none"
+    }
+  },
+  "motion": {
+    "scroll_reveal": "Use framer-motion. Initial: opacity-0, y-10. WhileInView: opacity-100, y-0. Transition: duration 0.8s, ease-out.",
+    "stagger_children": "Stagger list items (like menu items or gallery images) by 0.1s."
+  },
+  "media": {
+    "hero_background": {
+      "url": "https://static.prod-images.emergentagent.com/jobs/99d2014d-ccc7-4790-acd5-954d17c15026/images/da8b974572d0082db61d8df36b34e4da8c9fa82ab915428c55a08d41bd8b6a1b.png",
+      "description": "Warm cinematic coffee cups and bagel on rustic wood. Use with a gradient overlay: from-black/40 to-black/10.",
+      "category": "Hero Section"
+    },
+    "about_image": {
+      "url": "https://images.pexels.com/photos/20661977/pexels-photo-20661977.jpeg",
+      "description": "Cozy modern cafe interior with hanging lamps.",
+      "category": "About Section"
+    },
+    "menu_highlight": {
+      "url": "https://static.prod-images.emergentagent.com/jobs/99d2014d-ccc7-4790-acd5-954d17c15026/images/5824739168f1594ac71a95eb0edc82ed7fca9b4763604cee169b04c45f38bf54.png",
+      "description": "Beautiful flatlay of soup, croissants, and lemonade. Use next to or behind a specific menu category.",
+      "category": "Menu Section"
+    },
+    "gallery_images": [
+      {
+        "url": "https://images.pexels.com/photos/6205629/pexels-photo-6205629.jpeg",
+        "description": "Barista pouring latte art"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1687276287139-88f7333c8ca4",
+        "description": "Egg sandwich close up"
+      },
+      {
+        "url": "https://images.pexels.com/photos/37034126/pexels-photo-37034126.jpeg",
+        "description": "Latte art in warm light"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1588137378633-dea1336ce1e2",
+        "description": "Avocado and greens toast"
+      },
+      {
+        "url": "https://images.pexels.com/photos/34896773/pexels-photo-34896773.jpeg",
+        "description": "Cozy window seat with wooden chairs"
+      }
+    ]
+  },
+  "instructions_to_main_agent": [
+    "Ensure all interactive elements and inputs have the `data-testid` attribute (e.g., data-testid='book-table-submit').",
+    "Use lucide-react for icons (Coffee, MapPin, Clock, Phone, Instagram, Facebook, Utensils).",
+    "Add 'html { scroll-behavior: smooth; }' to global css for anchored nav.",
+    "For the 'Book a Table' form, implement a functional React form that captures Name, Phone, Date, Time, Party Size, and Notes, preventing default submission and outputting the structured object via console.log.",
+    "Do NOT use standard Shadcn cards with thick borders for the Offer section. Use the custom 'offer_cards' styling provided above.",
+    "Do NOT use a standard table for the Menu. Use the 'menu_list' flex layout with dashed borders.",
+    "Implement the language switcher in the navbar to toggle the displayed text for Menu categories. It can just switch an active state in React and display the corresponding text object.",
+    "Include a 'href' anchor tag on the Nav items to correctly snap to sections (e.g., href='#about', href='#menu').",
+    "Embed Google Fonts exactly as provided in typography.google_fonts_url inside the index.html or global css."
+  ]
+}
