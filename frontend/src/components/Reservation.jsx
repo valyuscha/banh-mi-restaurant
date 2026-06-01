@@ -1,0 +1,218 @@
+import { useState } from "react";
+import { format } from "date-fns";
+import { CalendarIcon, Clock, MapPin, Phone, Check } from "lucide-react";
+import { toast } from "sonner";
+import { Reveal, Overline } from "@/components/Reveal";
+import { useLanguage } from "@/context/LanguageContext";
+import { CONTACT } from "@/data/content";
+import { Calendar } from "@/components/ui/calendar";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+
+const inputCls =
+  "w-full bg-transparent border-b border-[#2C1E16]/30 px-0 py-3 text-[#2C1E16] placeholder:text-[#2C1E16]/40 focus:outline-none focus:border-[#C86F54] transition-colors";
+
+const Reservation = () => {
+  const { t } = useLanguage();
+  const r = t.reservation;
+
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [date, setDate] = useState(null);
+  const [time, setTime] = useState("");
+  const [guests, setGuests] = useState("");
+  const [notes, setNotes] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const reservation = {
+      name,
+      phone,
+      date: date ? format(date, "yyyy-MM-dd") : "",
+      time,
+      guests,
+      notes,
+      submittedAt: new Date().toISOString(),
+    };
+    console.log("Gossip Cafe — New Reservation Request:", reservation);
+    toast.success(r.success, {
+      icon: <Check className="w-4 h-4" />,
+    });
+    setName("");
+    setPhone("");
+    setDate(null);
+    setTime("");
+    setGuests("");
+    setNotes("");
+  };
+
+  return (
+    <section
+      id="contact"
+      data-testid="reservation-section"
+      className="py-20 sm:py-32 bg-[#FDFBF7]"
+    >
+      <div className="max-w-7xl mx-auto px-6 sm:px-12 grid lg:grid-cols-2 gap-14 lg:gap-20">
+        <Reveal>
+          <Overline>{r.overline}</Overline>
+          <h2 className="font-serif text-4xl sm:text-5xl text-[#2C1E16] tracking-tight mt-4">
+            {r.title}
+          </h2>
+          <p className="text-[#5C4A3D] text-lg mt-4 leading-relaxed max-w-md">{r.body}</p>
+
+          <form onSubmit={handleSubmit} className="mt-10 space-y-7" data-testid="reservation-form">
+            <div className="grid sm:grid-cols-2 gap-7">
+              <input
+                type="text"
+                required
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                placeholder={r.fields.name}
+                data-testid="res-name-input"
+                className={inputCls}
+              />
+              <input
+                type="tel"
+                required
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                placeholder={r.fields.phone}
+                data-testid="res-phone-input"
+                className={inputCls}
+              />
+            </div>
+
+            <div className="grid sm:grid-cols-2 gap-7">
+              <Popover>
+                <PopoverTrigger asChild>
+                  <button
+                    type="button"
+                    data-testid="res-date-trigger"
+                    className={`${inputCls} flex items-center justify-between text-left ${
+                      date ? "text-[#2C1E16]" : "text-[#2C1E16]/40"
+                    }`}
+                  >
+                    {date ? format(date, "PPP") : r.fields.date}
+                    <CalendarIcon className="w-4 h-4 text-[#C86F54]" />
+                  </button>
+                </PopoverTrigger>
+                <PopoverContent className="w-auto p-0 bg-[#FDFBF7]" align="start">
+                  <Calendar
+                    mode="single"
+                    selected={date}
+                    onSelect={setDate}
+                    disabled={(d) => d < new Date(new Date().setHours(0, 0, 0, 0))}
+                    initialFocus
+                  />
+                </PopoverContent>
+              </Popover>
+
+              <input
+                type="time"
+                required
+                value={time}
+                onChange={(e) => setTime(e.target.value)}
+                aria-label={r.fields.time}
+                data-testid="res-time-input"
+                className={inputCls}
+              />
+            </div>
+
+            <Select value={guests} onValueChange={setGuests} required>
+              <SelectTrigger
+                data-testid="res-guests-trigger"
+                className={`${inputCls} rounded-none ${guests ? "text-[#2C1E16]" : "text-[#2C1E16]/40"}`}
+              >
+                <SelectValue placeholder={r.fields.guests} />
+              </SelectTrigger>
+              <SelectContent className="bg-[#FDFBF7]">
+                {r.guestOptions.map((g, i) => (
+                  <SelectItem key={i} value={g} data-testid={`res-guest-option-${i}`}>
+                    {g}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+
+            <textarea
+              value={notes}
+              onChange={(e) => setNotes(e.target.value)}
+              placeholder={r.fields.notes}
+              rows={2}
+              data-testid="res-notes-input"
+              className={`${inputCls} resize-none`}
+            />
+
+            <button
+              type="submit"
+              data-testid="res-submit-btn"
+              className="inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-[#C86F54] text-[#FDFBF7] font-medium transition-all hover:bg-[#B35A3F] hover:-translate-y-0.5"
+            >
+              {r.submit}
+            </button>
+          </form>
+        </Reveal>
+
+        <Reveal delay={0.15}>
+          <div className="bg-[#F5F2EB] rounded-[2rem] p-8 sm:p-10 h-full flex flex-col gap-8">
+            <div>
+              <div className="flex items-center gap-2 text-[#C86F54]">
+                <Clock className="w-5 h-5" strokeWidth={1.8} />
+                <h3 className="font-serif text-2xl text-[#2C1E16]">{r.hoursTitle}</h3>
+              </div>
+              <div className="mt-5 space-y-3">
+                {r.hours.map((h, i) => (
+                  <div
+                    key={i}
+                    data-testid={`hours-row-${i}`}
+                    className="flex items-center justify-between border-b border-dashed border-[#2C1E16]/20 pb-3"
+                  >
+                    <span className="text-[#5C4A3D]">{h.day}</span>
+                    <span className="font-medium text-[#2C1E16]">{h.time}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <div className="flex items-center gap-2 text-[#C86F54]">
+                <MapPin className="w-5 h-5" strokeWidth={1.8} />
+                <h3 className="font-serif text-2xl text-[#2C1E16]">{r.contactTitle}</h3>
+              </div>
+              <div className="mt-5 space-y-2 text-[#5C4A3D]">
+                <p className="font-medium text-[#2C1E16]">{CONTACT.name}</p>
+                <p>{CONTACT.street}</p>
+                <p>{CONTACT.city}</p>
+                <a
+                  href={CONTACT.phoneHref}
+                  data-testid="contact-phone-link"
+                  className="inline-flex items-center gap-2 mt-2 text-[#C86F54] hover:text-[#B35A3F] transition-colors"
+                >
+                  <Phone className="w-4 h-4" /> {CONTACT.phone}
+                </a>
+              </div>
+            </div>
+
+            <a
+              href={CONTACT.mapUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-testid="map-link"
+              className="mt-auto inline-flex items-center justify-center px-7 py-3 rounded-full border border-[#2C1E16] text-[#2C1E16] font-medium transition-all hover:bg-[#2C1E16] hover:text-[#FDFBF7]"
+            >
+              Open in Google Maps
+            </a>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+};
+
+export default Reservation;
