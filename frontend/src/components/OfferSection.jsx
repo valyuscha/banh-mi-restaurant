@@ -5,7 +5,7 @@ import { useLanguage } from "@/context/LanguageContext";
 
 const ICONS = { Sun, Utensils, Coffee, ShoppingBag, Users, Dog };
 
-const OfferCard = ({ item, i, className = "" }) => {
+const OfferCard = ({ item, i, variant, className = "" }) => {
   const Icon = ICONS[item.icon] || Coffee;
   return (
     <motion.div
@@ -13,7 +13,7 @@ const OfferCard = ({ item, i, className = "" }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.6, ease: "easeOut", delay: i * 0.07 }}
-      data-testid={`offer-card-${i}`}
+      data-testid={`offer-card-${variant}-${i}`}
       className={`bg-[#FDFBF7] p-8 sm:p-10 rounded-3xl border border-[#2C1E16]/5 transition-transform hover:-translate-y-1.5 ${className}`}
     >
       <div className="w-12 h-12 rounded-full bg-[#F5F2EB] flex items-center justify-center text-[#2F6042] mb-6 shadow-sm">
@@ -52,6 +52,7 @@ const OfferSection = () => {
               key={i}
               item={item}
               i={i}
+              variant="mobile"
               className="snap-center shrink-0 basis-[calc(50%-10px)] min-w-[250px]"
             />
           ))}
@@ -60,7 +61,7 @@ const OfferSection = () => {
         {/* Tablet / desktop: grid */}
         <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-14">
           {t.offer.items.map((item, i) => (
-            <OfferCard key={i} item={item} i={i} />
+            <OfferCard key={i} item={item} i={i} variant="desktop" />
           ))}
         </div>
       </div>
