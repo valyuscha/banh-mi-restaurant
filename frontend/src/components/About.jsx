@@ -46,9 +46,9 @@ const About = () => {
                 className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
               />
             </div>
-            <div className="absolute -bottom-6 -left-6 hidden sm:block bg-[#2C1E16] text-[#FDFBF7] rounded-2xl px-7 py-5 shadow-xl">
+            <div className="absolute -bottom-6 -left-6 hidden sm:block bg-[#2F6042] text-[#FDFBF7] rounded-2xl px-7 py-5 shadow-xl">
               <p className="font-serif text-2xl">Kraków</p>
-              <p className="text-xs uppercase tracking-[0.2em] text-[#A9C3A2] mt-1">
+              <p className="text-xs uppercase tracking-[0.2em] text-[#FDFBF7]/80 mt-1">
                 Świętego Jana 30
               </p>
             </div>

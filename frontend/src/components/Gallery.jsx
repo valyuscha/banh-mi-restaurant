@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Reveal, Overline } from "@/components/Reveal";
+import { ScrollHint } from "@/components/ScrollHint";
 import { useLanguage } from "@/context/LanguageContext";
 import { MEDIA } from "@/data/content";
 
@@ -30,23 +31,26 @@ const Gallery = () => {
         </Reveal>
 
         {/* Mobile: horizontal snap carousel */}
-        <div
-          data-testid="gallery-carousel"
-          className="md:hidden flex gap-4 mt-10 -mx-6 px-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-2"
-        >
-          {MEDIA.gallery.map((img, i) => (
-            <div
-              key={i}
-              data-testid={`gallery-slide-${i}`}
-              className="snap-center shrink-0 w-[82%] aspect-[4/3] overflow-hidden rounded-3xl relative"
-            >
-              <img
-                src={img.url}
-                alt={img.alt}
-                className="w-full h-full object-cover"
-              />
-            </div>
-          ))}
+        <div className="md:hidden mt-10">
+          <div
+            data-testid="gallery-carousel"
+            className="flex gap-4 -mx-6 px-6 overflow-x-auto overflow-y-hidden snap-x snap-mandatory scrollbar-hide pb-1 items-stretch"
+          >
+            {MEDIA.gallery.map((img, i) => (
+              <div
+                key={i}
+                data-testid={`gallery-slide-${i}`}
+                className="snap-center shrink-0 w-[82%] aspect-[4/3] overflow-hidden rounded-3xl relative"
+              >
+                <img
+                  src={img.url}
+                  alt={img.alt}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            ))}
+          </div>
+          <ScrollHint label={t.scrollHint} />
         </div>
 
         {/* Desktop / tablet: bento grid */}

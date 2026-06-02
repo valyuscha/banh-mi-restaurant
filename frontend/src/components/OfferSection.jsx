@@ -1,6 +1,7 @@
 import { Sun, Utensils, Coffee, ShoppingBag, Users, Dog } from "lucide-react";
 import { motion } from "framer-motion";
 import { Reveal, Overline } from "@/components/Reveal";
+import { ScrollHint } from "@/components/ScrollHint";
 import { useLanguage } from "@/context/LanguageContext";
 
 const ICONS = { Sun, Utensils, Coffee, ShoppingBag, Users, Dog };
@@ -43,19 +44,22 @@ const OfferSection = () => {
         </Reveal>
 
         {/* Mobile: horizontal snap carousel (1–2 cards depending on width) */}
-        <div
-          data-testid="offer-carousel"
-          className="sm:hidden flex gap-5 mt-12 -mx-6 px-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-2"
-        >
-          {t.offer.items.map((item, i) => (
-            <OfferCard
-              key={i}
-              item={item}
-              i={i}
-              variant="mobile"
-              className="snap-center shrink-0 basis-[calc(50%-10px)] min-w-[250px]"
-            />
-          ))}
+        <div className="sm:hidden mt-12">
+          <div
+            data-testid="offer-carousel"
+            className="flex gap-5 -mx-6 px-6 overflow-x-auto overflow-y-hidden snap-x snap-mandatory scrollbar-hide pb-1 items-stretch"
+          >
+            {t.offer.items.map((item, i) => (
+              <OfferCard
+                key={i}
+                item={item}
+                i={i}
+                variant="mobile"
+                className="snap-center shrink-0 basis-[calc(50%-10px)] min-w-[250px]"
+              />
+            ))}
+          </div>
+          <ScrollHint label={t.scrollHint} />
         </div>
 
         {/* Tablet / desktop: grid */}

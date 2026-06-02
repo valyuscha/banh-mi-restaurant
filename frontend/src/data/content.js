@@ -16,6 +16,7 @@ export const content = {
       contact: "Contact",
       book: "Book a Table",
     },
+    scrollHint: "Swipe to explore",
     hero: {
       overline: "Specialty Coffee · Breakfast · Brunch · Kraków",
       title: "Experience mornings differently",
@@ -161,6 +162,7 @@ export const content = {
       contact: "Kontakt",
       book: "Rezerwuj stolik",
     },
+    scrollHint: "Przesuń, aby zobaczyć więcej",
     hero: {
       overline: "Kawa Speciality · Śniadania · Brunch · Kraków",
       title: "Poranki, które smakują inaczej",
@@ -306,6 +308,7 @@ export const content = {
       contact: "Kontakt",
       book: "Tisch reservieren",
     },
+    scrollHint: "Wischen, um mehr zu sehen",
     hero: {
       overline: "Specialty Coffee · Frühstück · Brunch · Krakau",
       title: "Morgen einmal anders erleben",
@@ -451,6 +454,13 @@ export const CONTACT = {
   phoneHref: "tel:+48535431878",
   facebook: "https://www.facebook.com/gossipcafekrakow/",
   mapUrl: "https://www.google.com/maps/search/?api=1&query=Gossip+Cafe+%C5%9Awi%C4%99tego+Jana+30+Krak%C3%B3w",
+};
+
+// Café working hours used to generate reservation time slots.
+// Mon–Fri (getDay 1-5) and Sat/Sun (getDay 0,6).
+export const HOURS = {
+  weekday: { open: "08:00", close: "15:00" },
+  weekend: { open: "07:30", close: "16:30" },
 };
 
 export const MEDIA = {

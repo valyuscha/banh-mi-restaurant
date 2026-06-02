@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Coffee, Menu as MenuIcon, X } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { LANGUAGES } from "@/data/content";
@@ -81,9 +82,7 @@ const Navbar = () => {
                 data-testid={`lang-btn-${l.code}`}
                 className={`px-2.5 py-1 rounded-full text-xs font-semibold tracking-wider transition-all ${
                   lang === l.code
-                    ? scrolled
-                      ? "bg-[#2C1E16] text-[#FDFBF7]"
-                      : "bg-[#FDFBF7] text-[#2C1E16]"
+                    ? "bg-[#2F6042] text-[#FDFBF7]"
                     : scrolled
                     ? "text-[#5C4A3D] hover:text-[#2C1E16]"
                     : "text-[#FDFBF7]/85 hover:text-[#FDFBF7]"
@@ -110,35 +109,70 @@ const Navbar = () => {
             data-testid="mobile-menu-toggle"
             aria-label="Toggle menu"
           >
-            {open ? <X className="w-6 h-6" /> : <MenuIcon className="w-6 h-6" />}
+            <AnimatePresence mode="wait" initial={false}>
+              {open ? (
+                <motion.span
+                  key="close"
+                  initial={{ rotate: -90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: 90, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="block"
+                >
+                  <X className="w-6 h-6" />
+                </motion.span>
+              ) : (
+                <motion.span
+                  key="open"
+                  initial={{ rotate: 90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: -90, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="block"
+                >
+                  <MenuIcon className="w-6 h-6" />
+                </motion.span>
+              )}
+            </AnimatePresence>
           </button>
         </div>
       </div>
 
-      {open && (
-        <div
-          className="lg:hidden mt-3 mx-4 rounded-2xl bg-[#FDFBF7] border border-[#2C1E16]/10 shadow-xl p-5 flex flex-col gap-4"
-          data-testid="mobile-menu"
-        >
-          {links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              onClick={close}
-              className="text-[#2C1E16] font-medium text-sm uppercase tracking-wider"
-            >
-              {l.label}
-            </a>
-          ))}
-          <a
-            href="#contact"
-            onClick={close}
-            className="inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-[#2F6042] text-[#FDFBF7] font-medium text-sm"
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            key="mobile-menu"
+            initial={{ opacity: 0, y: -12, height: 0 }}
+            animate={{ opacity: 1, y: 0, height: "auto" }}
+            exit={{ opacity: 0, y: -12, height: 0 }}
+            transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+            className="lg:hidden overflow-hidden"
           >
-            {t.nav.book}
-          </a>
-        </div>
-      )}
+            <div
+              className="mt-3 mx-4 rounded-2xl bg-[#FDFBF7] border border-[#2C1E16]/10 shadow-xl p-5 flex flex-col gap-4"
+              data-testid="mobile-menu"
+            >
+              {links.map((l) => (
+                <a
+                  key={l.href}
+                  href={l.href}
+                  onClick={close}
+                  className="text-[#2C1E16] font-medium text-sm uppercase tracking-wider hover:text-[#2F6042] transition-colors"
+                >
+                  {l.label}
+                </a>
+              ))}
+              <a
+                href="#contact"
+                onClick={close}
+                className="inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-[#2F6042] text-[#FDFBF7] font-medium text-sm"
+              >
+                {t.nav.book}
+              </a>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };

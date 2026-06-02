@@ -37,7 +37,7 @@ const MenuSection = () => {
                 data-testid={`menu-tab-${i}`}
                 className={`px-5 py-2 rounded-full text-sm font-medium transition-all ${
                   active === i
-                    ? "bg-[#2C1E16] text-[#FDFBF7]"
+                    ? "bg-[#2F6042] text-[#FDFBF7]"
                     : "bg-[#FDFBF7] text-[#5C4A3D] hover:text-[#2C1E16] border border-[#2C1E16]/10"
                 }`}
               >

@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { format } from "date-fns";
 import { CalendarIcon, Clock, MapPin, Phone, Check } from "lucide-react";
 import { toast } from "sonner";
 import { Reveal, Overline } from "@/components/Reveal";
 import { useLanguage } from "@/context/LanguageContext";
-import { CONTACT } from "@/data/content";
+import { CONTACT, HOURS } from "@/data/content";
 import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import {
@@ -21,6 +21,26 @@ const inputCls =
 const labelCls =
   "block text-xs uppercase tracking-[0.15em] font-semibold text-[#5C4A3D] mb-2";
 
+const toMinutes = (hhmm) => {
+  const [h, m] = hhmm.split(":").map(Number);
+  return h * 60 + m;
+};
+const toLabel = (min) =>
+  `${String(Math.floor(min / 60)).padStart(2, "0")}:${String(min % 60).padStart(2, "0")}`;
+
+// Slots every 30 min within the café's working hours for the selected day,
+// last slot is one hour before closing. Sat/Sun use weekend hours.
+const generateTimeSlots = (date) => {
+  const day = date ? date.getDay() : 1; // default to weekday hours
+  const isWeekend = day === 0 || day === 6;
+  const { open, close } = isWeekend ? HOURS.weekend : HOURS.weekday;
+  const start = toMinutes(open);
+  const end = toMinutes(close) - 60;
+  const slots = [];
+  for (let m = start; m <= end; m += 30) slots.push(toLabel(m));
+  return slots;
+};
+
 const Reservation = () => {
   const { t } = useLanguage();
   const r = t.reservation;
@@ -31,6 +51,13 @@ const Reservation = () => {
   const [time, setTime] = useState("");
   const [guests, setGuests] = useState("");
   const [notes, setNotes] = useState("");
+
+  const timeSlots = useMemo(() => generateTimeSlots(date), [date]);
+
+  // Reset a chosen time if it falls outside the slots for the newly picked day.
+  useEffect(() => {
+    if (time && !timeSlots.includes(time)) setTime("");
+  }, [timeSlots, time]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -133,16 +160,26 @@ const Reservation = () => {
 
               <div>
                 <label className={labelCls} htmlFor="res-time">{r.fields.time}</label>
-                <input
-                  id="res-time"
-                  type="time"
-                  required
-                  value={time}
-                  onChange={(e) => setTime(e.target.value)}
-                  aria-label={r.fields.time}
-                  data-testid="res-time-input"
-                  className={inputCls}
-                />
+                <Select value={time} onValueChange={setTime} required>
+                  <SelectTrigger
+                    id="res-time"
+                    data-testid="res-time-trigger"
+                    className={`${inputCls} ${time ? "text-[#2C1E16]" : "text-[#2C1E16]/40"}`}
+                  >
+                    <SelectValue placeholder={r.fields.time} />
+                  </SelectTrigger>
+                  <SelectContent className="bg-[#FDFBF7] max-h-60">
+                    {timeSlots.map((slot) => (
+                      <SelectItem
+                        key={slot}
+                        value={slot}
+                        data-testid={`res-time-option-${slot}`}
+                      >
+                        {slot}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
               </div>
             </div>
 
