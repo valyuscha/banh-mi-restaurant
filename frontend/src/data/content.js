@@ -144,6 +144,7 @@ export const content = {
         { day: "Saturday – Sunday", time: "07:30 – 16:30" },
       ],
       contactTitle: "Find Us",
+      openMap: "Open in Google Maps",
     },
     footer: {
       tagline: "Fresh ingredients. Homemade recipes. Warm atmosphere.",
@@ -290,6 +291,7 @@ export const content = {
         { day: "Sobota – Niedziela", time: "07:30 – 16:30" },
       ],
       contactTitle: "Znajdź nas",
+      openMap: "Otwórz w Google Maps",
     },
     footer: {
       tagline: "Świeże składniki. Domowe przepisy. Ciepła atmosfera.",
@@ -436,6 +438,7 @@ export const content = {
         { day: "Samstag – Sonntag", time: "07:30 – 16:30" },
       ],
       contactTitle: "Finde uns",
+      openMap: "In Google Maps öffnen",
     },
     footer: {
       tagline: "Frische Zutaten. Hausgemachte Rezepte. Warme Atmosphäre.",
@@ -465,14 +468,14 @@ export const HOURS = {
 
 export const MEDIA = {
   hero: "https://static.prod-images.emergentagent.com/jobs/99d2014d-ccc7-4790-acd5-954d17c15026/images/da8b974572d0082db61d8df36b34e4da8c9fa82ab915428c55a08d41bd8b6a1b.png",
-  about: "https://images.pexels.com/photos/20661977/pexels-photo-20661977.jpeg",
+  about: "https://images.pexels.com/photos/20661977/pexels-photo-20661977.jpeg?auto=compress&cs=tinysrgb&w=800",
   menuHighlight:
     "https://static.prod-images.emergentagent.com/jobs/99d2014d-ccc7-4790-acd5-954d17c15026/images/5824739168f1594ac71a95eb0edc82ed7fca9b4763604cee169b04c45f38bf54.png",
   gallery: [
-    { url: "https://images.pexels.com/photos/6205629/pexels-photo-6205629.jpeg", alt: "Barista pouring latte art" },
-    { url: "https://images.unsplash.com/photo-1687276287139-88f7333c8ca4", alt: "Egg sandwich close up" },
-    { url: "https://images.pexels.com/photos/37034126/pexels-photo-37034126.jpeg", alt: "Latte art in warm light" },
-    { url: "https://images.unsplash.com/photo-1588137378633-dea1336ce1e2", alt: "Avocado and greens toast" },
-    { url: "https://images.pexels.com/photos/34896773/pexels-photo-34896773.jpeg", alt: "Cozy window seat with wooden chairs" },
+    { url: "https://images.pexels.com/photos/6205629/pexels-photo-6205629.jpeg?auto=compress&cs=tinysrgb&w=800", alt: "Barista pouring latte art" },
+    { url: "https://images.unsplash.com/photo-1687276287139-88f7333c8ca4?w=800&q=80&auto=format", alt: "Egg sandwich close up" },
+    { url: "https://images.pexels.com/photos/37034126/pexels-photo-37034126.jpeg?auto=compress&cs=tinysrgb&w=800", alt: "Latte art in warm light" },
+    { url: "https://images.unsplash.com/photo-1588137378633-dea1336ce1e2?w=800&q=80&auto=format", alt: "Avocado and greens toast" },
+    { url: "https://images.pexels.com/photos/34896773/pexels-photo-34896773.jpeg?auto=compress&cs=tinysrgb&w=800", alt: "Cozy window seat with wooden chairs" },
   ],
 };

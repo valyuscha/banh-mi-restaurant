@@ -25,6 +25,14 @@ const Navbar = () => {
 
   const close = () => setOpen(false);
 
+  const handleMobileLink = (e, href) => {
+    e.preventDefault();
+    setOpen(false);
+    setTimeout(() => {
+      document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+    }, 50);
+  };
+
   return (
     <nav
       data-testid="main-navbar"
@@ -156,7 +164,7 @@ const Navbar = () => {
                 <a
                   key={l.href}
                   href={l.href}
-                  onClick={close}
+                  onClick={(e) => handleMobileLink(e, l.href)}
                   className="text-[#2C1E16] font-medium text-sm uppercase tracking-wider hover:text-[#2F6042] transition-colors"
                 >
                   {l.label}
@@ -164,7 +172,7 @@ const Navbar = () => {
               ))}
               <a
                 href="#contact"
-                onClick={close}
+                onClick={(e) => handleMobileLink(e, "#contact")}
                 className="inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-[#2F6042] text-[#FDFBF7] font-medium text-sm"
               >
                 {t.nav.book}

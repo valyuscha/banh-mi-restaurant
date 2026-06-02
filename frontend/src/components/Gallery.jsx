@@ -3,6 +3,7 @@ import { Reveal, Overline } from "@/components/Reveal";
 import { ScrollHint } from "@/components/ScrollHint";
 import { useLanguage } from "@/context/LanguageContext";
 import { MEDIA } from "@/data/content";
+import ProgressiveImage from "@/components/ProgressiveImage";
 
 const spans = [
   "md:col-span-7 md:row-span-2",
@@ -19,7 +20,7 @@ const Gallery = () => {
     <section
       id="gallery"
       data-testid="gallery-section"
-      className="py-20 sm:py-32 bg-[#FDFBF7]"
+      className="py-12 sm:py-32 bg-[#FDFBF7]"
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-12">
         <Reveal className="max-w-2xl">
@@ -45,6 +46,7 @@ const Gallery = () => {
                 <img
                   src={img.url}
                   alt={img.alt}
+                  loading="lazy"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -65,7 +67,7 @@ const Gallery = () => {
               data-testid={`gallery-image-${i}`}
               className={`group relative overflow-hidden rounded-3xl ${spans[i]}`}
             >
-              <img
+              <ProgressiveImage
                 src={img.url}
                 alt={img.alt}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"

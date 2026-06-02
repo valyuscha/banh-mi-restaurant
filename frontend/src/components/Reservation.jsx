@@ -16,7 +16,7 @@ import {
 } from "@/components/ui/select";
 
 const inputCls =
-  "w-full bg-[#F7F4EE] border border-[#2C1E16]/10 rounded-xl px-4 py-3.5 text-[#2C1E16] placeholder:text-[#2C1E16]/40 focus:outline-none focus:border-[#2F6042] focus:ring-2 focus:ring-[#2F6042]/20 transition-all";
+  "w-full h-[54px] bg-[#F7F4EE] border border-[#2C1E16]/10 rounded-xl px-4 py-3.5 text-[#2C1E16] placeholder:text-[#2C1E16]/40 focus:outline-none focus:border-[#2F6042] focus:ring-2 focus:ring-[#2F6042]/20 transition-all";
 
 const labelCls =
   "block text-xs uppercase tracking-[0.15em] font-semibold text-[#5C4A3D] mb-2";
@@ -49,7 +49,7 @@ const Reservation = () => {
   const [phone, setPhone] = useState("");
   const [date, setDate] = useState(null);
   const [time, setTime] = useState("");
-  const [guests, setGuests] = useState("");
+  const [guests, setGuests] = useState(t.reservation.guestOptions[1]);
   const [notes, setNotes] = useState("");
 
   const timeSlots = useMemo(() => generateTimeSlots(date), [date]);
@@ -78,7 +78,7 @@ const Reservation = () => {
     setPhone("");
     setDate(null);
     setTime("");
-    setGuests("");
+    setGuests(r.guestOptions[1]);
     setNotes("");
   };
 
@@ -86,7 +86,7 @@ const Reservation = () => {
     <section
       id="contact"
       data-testid="reservation-section"
-      className="py-20 sm:py-32 bg-[#FDFBF7]"
+      className="py-12 sm:py-32 bg-[#FDFBF7]"
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-12 grid lg:grid-cols-[1.15fr_0.85fr] gap-12 lg:gap-16 items-start">
         <Reveal>
@@ -270,9 +270,9 @@ const Reservation = () => {
               target="_blank"
               rel="noopener noreferrer"
               data-testid="map-link"
-              className="mt-auto inline-flex items-center justify-center px-7 py-3 rounded-full border border-[#2C1E16] text-[#2C1E16] font-medium transition-all hover:bg-[#2C1E16] hover:text-[#FDFBF7]"
+              className="mt-auto inline-flex items-center justify-center px-7 py-3 rounded-full border border-[#2C1E16] text-[#2C1E16] font-medium transition-all hover:bg-[#2F6042] hover:text-[#FDFBF7]"
             >
-              Open in Google Maps
+              {t.reservation.openMap}
             </a>
           </div>
         </Reveal>

@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Reveal, Overline } from "@/components/Reveal";
 import { useLanguage } from "@/context/LanguageContext";
 import { MEDIA } from "@/data/content";
+import ProgressiveImage from "@/components/ProgressiveImage";
 
 const MenuSection = () => {
   const { t, lang } = useLanguage();
@@ -14,7 +15,7 @@ const MenuSection = () => {
     <section
       id="menu"
       data-testid="menu-section"
-      className="py-20 sm:py-32 bg-[#F5F2EB]"
+      className="py-12 sm:py-32 bg-[#F5F2EB]"
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-12">
         <Reveal className="text-center max-w-2xl mx-auto">
@@ -78,7 +79,7 @@ const MenuSection = () => {
 
           <Reveal delay={0.15} className="w-full md:sticky md:top-28">
             <div className="overflow-hidden rounded-[2rem] aspect-[4/3] sm:aspect-[21/9] md:aspect-[3/4]">
-              <img
+              <ProgressiveImage
                 src={MEDIA.menuHighlight}
                 alt="Signature dishes at Gossip Cafe"
                 className="w-full h-full object-cover"

@@ -1,6 +1,7 @@
 import { Reveal, Overline } from "@/components/Reveal";
 import { useLanguage } from "@/context/LanguageContext";
 import { MEDIA } from "@/data/content";
+import ProgressiveImage from "@/components/ProgressiveImage";
 
 const About = () => {
   const { t } = useLanguage();
@@ -9,7 +10,7 @@ const About = () => {
     <section
       id="about"
       data-testid="about-section"
-      className="py-20 sm:py-32 bg-[#FDFBF7]"
+      className="py-12 sm:py-32 bg-[#FDFBF7]"
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-12 grid sm:grid-cols-2 gap-10 sm:gap-12 lg:gap-20 items-center">
         <Reveal className="order-2 sm:order-1">
@@ -40,7 +41,7 @@ const About = () => {
         <Reveal delay={0.15} className="order-1 sm:order-2">
           <div className="relative">
             <div className="overflow-hidden rounded-[2rem] aspect-[4/5]">
-              <img
+              <ProgressiveImage
                 src={MEDIA.about}
                 alt="Cozy Gossip Cafe interior"
                 className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"

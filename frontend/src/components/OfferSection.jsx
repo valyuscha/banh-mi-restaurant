@@ -36,7 +36,7 @@ const OfferSection = () => {
     <section
       id="offer"
       data-testid="offer-section"
-      className="py-20 sm:py-32 bg-[#F5F2EB]"
+      className="py-12 sm:py-32 bg-[#F5F2EB]"
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-12">
         <Reveal className="text-center max-w-2xl mx-auto">

@@ -10,12 +10,13 @@ const Hero = () => {
     <section
       id="home"
       data-testid="hero-section"
-      className="relative min-h-screen flex items-center overflow-hidden"
+      className="relative min-h-screen flex items-center overflow-hidden bg-[#2C1E16]"
     >
       <div className="absolute inset-0">
         <img
           src={MEDIA.hero}
           alt="Warm coffee and breakfast on rustic wood"
+          fetchPriority="high"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#2C1E16]/80 via-[#2C1E16]/55 to-[#2C1E16]/20" />
