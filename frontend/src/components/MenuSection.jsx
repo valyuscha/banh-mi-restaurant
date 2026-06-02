@@ -47,7 +47,7 @@ const MenuSection = () => {
           </div>
         </Reveal>
 
-        <div className="grid lg:grid-cols-[1.4fr_1fr] gap-12 lg:gap-16 mt-14 items-start">
+        <div className="grid md:grid-cols-[1.4fr_1fr] gap-10 md:gap-12 lg:gap-16 mt-14 items-start">
           <div className="flex flex-col gap-4">
             <AnimatePresence mode="wait">
               <motion.div
@@ -67,7 +67,7 @@ const MenuSection = () => {
                     <span className="font-serif text-xl sm:text-2xl text-[#2C1E16] pr-4">
                       {item.name}
                     </span>
-                    <span className="font-medium text-[#C86F54] text-lg sm:text-xl whitespace-nowrap">
+                    <span className="font-medium text-[#2F6042] text-lg sm:text-xl whitespace-nowrap">
                       {item.price} zł
                     </span>
                   </div>
@@ -76,8 +76,8 @@ const MenuSection = () => {
             </AnimatePresence>
           </div>
 
-          <Reveal delay={0.15} className="sticky top-28">
-            <div className="overflow-hidden rounded-[2rem] aspect-[3/4]">
+          <Reveal delay={0.15} className="w-full md:sticky md:top-28">
+            <div className="overflow-hidden rounded-[2rem] aspect-[4/3] sm:aspect-[21/9] md:aspect-[3/4]">
               <img
                 src={MEDIA.menuHighlight}
                 alt="Signature dishes at Gossip Cafe"

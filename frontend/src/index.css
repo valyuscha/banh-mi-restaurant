@@ -22,6 +22,14 @@ body {
     font-family: "Cormorant Garamond", serif;
 }
 
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
 ::selection {
     background-color: #c86f54;
     color: #fdfbf7;
@@ -34,11 +42,11 @@ body {
     background: #f5f2eb;
 }
 ::-webkit-scrollbar-thumb {
-    background: #c86f54;
+    background: #2f6042;
     border-radius: 8px;
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: #b35a3f;
+    background: #234b33;
 }
 
 @layer base {
@@ -55,13 +63,13 @@ body {
         --secondary-foreground: 24 35% 13%;
         --muted: 40 33% 94%;
         --muted-foreground: 27 20% 31%;
-        --accent: 13 51% 56%;
+        --accent: 146 34% 28%;
         --accent-foreground: 40 43% 98%;
         --destructive: 0 84.2% 60.2%;
         --destructive-foreground: 40 43% 98%;
         --border: 24 20% 85%;
         --input: 24 20% 85%;
-        --ring: 13 51% 56%;
+        --ring: 146 34% 28%;
         --radius: 0.75rem;
     }
 }

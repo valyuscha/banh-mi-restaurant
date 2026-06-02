@@ -27,7 +27,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
-            className="text-xs sm:text-sm tracking-[0.25em] uppercase font-semibold text-[#E8B79E]"
+            className="text-xs sm:text-sm tracking-[0.25em] uppercase font-semibold text-[#A9C3A2]"
           >
             {t.hero.overline}
           </motion.span>
@@ -59,7 +59,7 @@ const Hero = () => {
             <a
               href="#contact"
               data-testid="hero-book-btn"
-              className="inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-[#C86F54] text-[#FDFBF7] font-medium transition-all hover:bg-[#B35A3F] hover:-translate-y-0.5"
+              className="inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-[#2F6042] text-[#FDFBF7] font-medium transition-all hover:bg-[#234B33] hover:-translate-y-0.5"
             >
               {t.hero.primary}
             </a>

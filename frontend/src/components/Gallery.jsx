@@ -29,7 +29,28 @@ const Gallery = () => {
           <p className="text-[#5C4A3D] text-lg mt-4 leading-relaxed">{t.gallery.body}</p>
         </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-5 md:gap-6 mt-12 auto-rows-[260px]">
+        {/* Mobile: horizontal snap carousel */}
+        <div
+          data-testid="gallery-carousel"
+          className="md:hidden flex gap-4 mt-10 -mx-6 px-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-2"
+        >
+          {MEDIA.gallery.map((img, i) => (
+            <div
+              key={i}
+              data-testid={`gallery-slide-${i}`}
+              className="snap-center shrink-0 w-[82%] aspect-[4/3] overflow-hidden rounded-3xl relative"
+            >
+              <img
+                src={img.url}
+                alt={img.alt}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          ))}
+        </div>
+
+        {/* Desktop / tablet: bento grid */}
+        <div className="hidden md:grid grid-cols-12 gap-6 mt-12 auto-rows-[260px]">
           {MEDIA.gallery.map((img, i) => (
             <motion.div
               key={i}

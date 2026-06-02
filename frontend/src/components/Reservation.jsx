@@ -16,7 +16,10 @@ import {
 } from "@/components/ui/select";
 
 const inputCls =
-  "w-full bg-transparent border-b border-[#2C1E16]/30 px-0 py-3 text-[#2C1E16] placeholder:text-[#2C1E16]/40 focus:outline-none focus:border-[#C86F54] transition-colors";
+  "w-full bg-[#F7F4EE] border border-[#2C1E16]/10 rounded-xl px-4 py-3.5 text-[#2C1E16] placeholder:text-[#2C1E16]/40 focus:outline-none focus:border-[#2F6042] focus:ring-2 focus:ring-[#2F6042]/20 transition-all";
+
+const labelCls =
+  "block text-xs uppercase tracking-[0.15em] font-semibold text-[#5C4A3D] mb-2";
 
 const Reservation = () => {
   const { t } = useLanguage();
@@ -58,7 +61,7 @@ const Reservation = () => {
       data-testid="reservation-section"
       className="py-20 sm:py-32 bg-[#FDFBF7]"
     >
-      <div className="max-w-7xl mx-auto px-6 sm:px-12 grid lg:grid-cols-2 gap-14 lg:gap-20">
+      <div className="max-w-7xl mx-auto px-6 sm:px-12 grid lg:grid-cols-[1.15fr_0.85fr] gap-12 lg:gap-16 items-start">
         <Reveal>
           <Overline>{r.overline}</Overline>
           <h2 className="font-serif text-4xl sm:text-5xl text-[#2C1E16] tracking-tight mt-4">
@@ -66,93 +69,119 @@ const Reservation = () => {
           </h2>
           <p className="text-[#5C4A3D] text-lg mt-4 leading-relaxed max-w-md">{r.body}</p>
 
-          <form onSubmit={handleSubmit} className="mt-10 space-y-7" data-testid="reservation-form">
-            <div className="grid sm:grid-cols-2 gap-7">
-              <input
-                type="text"
-                required
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                placeholder={r.fields.name}
-                data-testid="res-name-input"
-                className={inputCls}
-              />
-              <input
-                type="tel"
-                required
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
-                placeholder={r.fields.phone}
-                data-testid="res-phone-input"
-                className={inputCls}
-              />
+          <form
+            onSubmit={handleSubmit}
+            data-testid="reservation-form"
+            className="mt-8 bg-white rounded-[2rem] border border-[#2C1E16]/8 shadow-[0_18px_50px_-25px_rgba(44,30,22,0.35)] p-6 sm:p-9 space-y-6"
+          >
+            <div className="grid sm:grid-cols-2 gap-5">
+              <div>
+                <label className={labelCls} htmlFor="res-name">{r.fields.name}</label>
+                <input
+                  id="res-name"
+                  type="text"
+                  required
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder={r.fields.name}
+                  data-testid="res-name-input"
+                  className={inputCls}
+                />
+              </div>
+              <div>
+                <label className={labelCls} htmlFor="res-phone">{r.fields.phone}</label>
+                <input
+                  id="res-phone"
+                  type="tel"
+                  required
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  placeholder={r.fields.phone}
+                  data-testid="res-phone-input"
+                  className={inputCls}
+                />
+              </div>
             </div>
 
-            <div className="grid sm:grid-cols-2 gap-7">
-              <Popover>
-                <PopoverTrigger asChild>
-                  <button
-                    type="button"
-                    data-testid="res-date-trigger"
-                    className={`${inputCls} flex items-center justify-between text-left ${
-                      date ? "text-[#2C1E16]" : "text-[#2C1E16]/40"
-                    }`}
-                  >
-                    {date ? format(date, "PPP") : r.fields.date}
-                    <CalendarIcon className="w-4 h-4 text-[#C86F54]" />
-                  </button>
-                </PopoverTrigger>
-                <PopoverContent className="w-auto p-0 bg-[#FDFBF7]" align="start">
-                  <Calendar
-                    mode="single"
-                    selected={date}
-                    onSelect={setDate}
-                    disabled={(d) => d < new Date(new Date().setHours(0, 0, 0, 0))}
-                    initialFocus
-                  />
-                </PopoverContent>
-              </Popover>
+            <div className="grid sm:grid-cols-2 gap-5">
+              <div>
+                <label className={labelCls}>{r.fields.date}</label>
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <button
+                      type="button"
+                      data-testid="res-date-trigger"
+                      className={`${inputCls} flex items-center justify-between text-left ${
+                        date ? "text-[#2C1E16]" : "text-[#2C1E16]/40"
+                      }`}
+                    >
+                      {date ? format(date, "PPP") : r.fields.date}
+                      <CalendarIcon className="w-4 h-4 text-[#2F6042]" />
+                    </button>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-auto p-0 bg-[#FDFBF7]" align="start">
+                    <Calendar
+                      mode="single"
+                      selected={date}
+                      onSelect={setDate}
+                      disabled={(d) => d < new Date(new Date().setHours(0, 0, 0, 0))}
+                      initialFocus
+                    />
+                  </PopoverContent>
+                </Popover>
+              </div>
 
-              <input
-                type="time"
-                required
-                value={time}
-                onChange={(e) => setTime(e.target.value)}
-                aria-label={r.fields.time}
-                data-testid="res-time-input"
-                className={inputCls}
-              />
+              <div>
+                <label className={labelCls} htmlFor="res-time">{r.fields.time}</label>
+                <input
+                  id="res-time"
+                  type="time"
+                  required
+                  value={time}
+                  onChange={(e) => setTime(e.target.value)}
+                  aria-label={r.fields.time}
+                  data-testid="res-time-input"
+                  className={inputCls}
+                />
+              </div>
             </div>
 
-            <Select value={guests} onValueChange={setGuests} required>
-              <SelectTrigger
-                data-testid="res-guests-trigger"
-                className={`${inputCls} rounded-none ${guests ? "text-[#2C1E16]" : "text-[#2C1E16]/40"}`}
-              >
-                <SelectValue placeholder={r.fields.guests} />
-              </SelectTrigger>
-              <SelectContent className="bg-[#FDFBF7]">
-                {r.guestOptions.map((g, i) => (
-                  <SelectItem key={i} value={g} data-testid={`res-guest-option-${i}`}>
-                    {g}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+            <div>
+              <label className={labelCls}>{r.fields.guests}</label>
+              <Select value={guests} onValueChange={setGuests} required>
+                <SelectTrigger
+                  data-testid="res-guests-trigger"
+                  className={`${inputCls} ${guests ? "text-[#2C1E16]" : "text-[#2C1E16]/40"}`}
+                >
+                  <SelectValue placeholder={r.fields.guests} />
+                </SelectTrigger>
+                <SelectContent className="bg-[#FDFBF7]">
+                  {r.guestOptions.map((g, i) => (
+                    <SelectItem key={i} value={g} data-testid={`res-guest-option-${i}`}>
+                      {g}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
 
-            <textarea
-              value={notes}
-              onChange={(e) => setNotes(e.target.value)}
-              placeholder={r.fields.notes}
-              rows={2}
-              data-testid="res-notes-input"
-              className={`${inputCls} resize-none`}
-            />
+            <div>
+              <label className={labelCls} htmlFor="res-notes">{r.fields.notes}</label>
+              <textarea
+                id="res-notes"
+                value={notes}
+                onChange={(e) => setNotes(e.target.value)}
+                placeholder={r.fields.notes}
+                rows={2}
+                data-testid="res-notes-input"
+                className={`${inputCls} resize-none`}
+              />
+            </div>
 
             <button
               type="submit"
               data-testid="res-submit-btn"
-              className="inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-[#C86F54] text-[#FDFBF7] font-medium transition-all hover:bg-[#B35A3F] hover:-translate-y-0.5"
+              className="w-full inline-flex items-center justify-center px-8 py-4 rounded-xl bg-[#2F6042] text-[#FDFBF7] font-medium transition-all hover:bg-[#234B33] hover:-translate-y-0.5"
             >
               {r.submit}
             </button>
@@ -162,7 +191,7 @@ const Reservation = () => {
         <Reveal delay={0.15}>
           <div className="bg-[#F5F2EB] rounded-[2rem] p-8 sm:p-10 h-full flex flex-col gap-8">
             <div>
-              <div className="flex items-center gap-2 text-[#C86F54]">
+              <div className="flex items-center gap-2 text-[#2F6042]">
                 <Clock className="w-5 h-5" strokeWidth={1.8} />
                 <h3 className="font-serif text-2xl text-[#2C1E16]">{r.hoursTitle}</h3>
               </div>
@@ -181,7 +210,7 @@ const Reservation = () => {
             </div>
 
             <div>
-              <div className="flex items-center gap-2 text-[#C86F54]">
+              <div className="flex items-center gap-2 text-[#2F6042]">
                 <MapPin className="w-5 h-5" strokeWidth={1.8} />
                 <h3 className="font-serif text-2xl text-[#2C1E16]">{r.contactTitle}</h3>
               </div>
@@ -192,7 +221,7 @@ const Reservation = () => {
                 <a
                   href={CONTACT.phoneHref}
                   data-testid="contact-phone-link"
-                  className="inline-flex items-center gap-2 mt-2 text-[#C86F54] hover:text-[#B35A3F] transition-colors"
+                  className="inline-flex items-center gap-2 mt-2 text-[#2F6042] hover:text-[#234B33] transition-colors"
                 >
                   <Phone className="w-4 h-4" /> {CONTACT.phone}
                 </a>

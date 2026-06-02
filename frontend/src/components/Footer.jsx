@@ -20,12 +20,12 @@ const Footer = () => {
         </div>
 
         <div>
-          <p className="text-xs uppercase tracking-[0.2em] text-[#E8B79E]">
+          <p className="text-xs uppercase tracking-[0.2em] text-[#A9C3A2]">
             {t.footer.addressLabel}
           </p>
           <div className="mt-4 space-y-1 text-sm">
             <p className="flex items-start gap-2">
-              <MapPin className="w-4 h-4 mt-0.5 text-[#E8B79E]" />
+              <MapPin className="w-4 h-4 mt-0.5 text-[#A9C3A2]" />
               <span>
                 {CONTACT.street}
                 <br />
@@ -36,7 +36,7 @@ const Footer = () => {
         </div>
 
         <div>
-          <p className="text-xs uppercase tracking-[0.2em] text-[#E8B79E]">
+          <p className="text-xs uppercase tracking-[0.2em] text-[#A9C3A2]">
             {t.footer.phoneLabel}
           </p>
           <div className="mt-4 space-y-3 text-sm">
@@ -45,7 +45,7 @@ const Footer = () => {
               data-testid="footer-phone"
               className="flex items-center gap-2 hover:text-[#FDFBF7] transition-colors"
             >
-              <Phone className="w-4 h-4 text-[#E8B79E]" /> {CONTACT.phone}
+              <Phone className="w-4 h-4 text-[#A9C3A2]" /> {CONTACT.phone}
             </a>
             <a
               href={CONTACT.facebook}
@@ -54,7 +54,7 @@ const Footer = () => {
               data-testid="footer-facebook"
               className="flex items-center gap-2 hover:text-[#FDFBF7] transition-colors"
             >
-              <Facebook className="w-4 h-4 text-[#E8B79E]" /> Facebook
+              <Facebook className="w-4 h-4 text-[#A9C3A2]" /> Facebook
             </a>
           </div>
         </div>

@@ -4,7 +4,7 @@ import { content } from "@/data/content";
 const LanguageContext = createContext(null);
 
 export const LanguageProvider = ({ children }) => {
-  const [lang, setLang] = useState("en");
+  const [lang, setLang] = useState("pl");
 
   const changeLang = useCallback((code) => {
     if (content[code]) setLang(code);

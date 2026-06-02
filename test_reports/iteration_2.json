@@ -1,0 +1,25 @@
+{
+  "summary": "Re-tested all 8 requested UI/responsive changes for Gossip Cafe Krakow landing page on the public preview URL across viewports 390/640/768/1920px. All requested features pass: PL is default language (lang-btn-pl active, hero shows 'Poranki, ktore smakuja inaczej'), language switcher works (EN/PL/DE all update hero title), navbar uses light text + brown-tinted gradient over hero at top and switches to dark text + blurred light background after scrolling past 24px, green accent #2F6042 (rgb(47,96,66)) is applied to navbar-book-btn, hero-book-btn, res-submit-btn and all menu prices, reservation form submission emits console.log 'Gossip Cafe - New Reservation Request:' + shows Sonner success toast + clears all fields, Gallery shows horizontal scroll carousel (gallery-carousel with 5 slides) on mobile 390px and bento grid (5 images) on desktop, Offer shows horizontal carousel on mobile (<640px) and 2/3-col grid on >=640px, About is stacked on mobile and 2-col side-by-side from 640px+, Menu image is single column with aspect-[21/9] (shorter height) between 640-767px and switches to 2-col with portrait image at 768px+. No console errors and no page errors detected.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "OfferSection.jsx renders the same offer cards twice in the DOM (once in sm:hidden mobile carousel and once in hidden sm:grid desktop grid) with identical data-testid values offer-card-0..5 each. The duplicate testids result in 12 total elements matching [data-testid^='offer-card-'] even though only 6 are visible per breakpoint. Functionally fine because only one set is visible at a time, but test selectors that count occurrences will be misleading. Consider using suffixes like offer-card-mobile-{i} and offer-card-desktop-{i}, or rendering one list and toggling layout via CSS only.",
+    "Language preference still not persisted across reloads (LanguageContext uses in-memory useState only). Default is now 'pl' as requested, but if user manually switches to EN/DE and refreshes, it reverts to PL. Consider persisting to localStorage if desired.",
+    "Reservation form Select (guests) uses the 'required' prop on the Radix Select wrapper, but native form validation does not enforce it - submitting with empty guests/date still succeeds and emits a payload with empty strings. Acceptable for the mocked flow but should be tightened before any real submission backend.",
+    "Reservation.jsx logs raw user PII (name/phone) to console.log by design - remove before production deploy."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A (skipped per request)", "frontend": "100%"},
+  "test_credentials": "None required - frontend only",
+  "seed_data_creation": "None",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Public URL: https://krakow-bistro-hub.preview.emergentagent.com. All 8 requested UI/responsive changes verified via Playwright at viewports 390/640/768/1920. Green accent color #2F6042 = rgb(47,96,66) - useful constant for color regression checks. Reservation: select res-guest-option-{i} with force=True (Radix overlay), calendar uses button[name='day']:not([disabled]). Mobile breakpoints: gallery carousel visible <768px (md:hidden), offer carousel visible <640px (sm:hidden). Note duplicate offer-card-{i} testids - filter by .is_visible() if counting. No backend; reservation only console.logs by design (mocked).",
+  "rca of the issue": "No bugs found - all 8 requested changes implemented correctly and verified across required viewports."
+}

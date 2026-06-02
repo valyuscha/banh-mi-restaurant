@@ -29,17 +29,22 @@ const Navbar = () => {
       data-testid="main-navbar"
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         scrolled
-          ? "backdrop-blur-xl bg-[#FDFBF7]/85 border-b border-[#2C1E16]/10 py-3"
-          : "bg-transparent py-5"
+          ? "backdrop-blur-xl bg-[#FDFBF7]/90 border-b border-[#2C1E16]/10 py-3"
+          : "bg-gradient-to-b from-[#2C1E16]/45 to-transparent py-5"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-12 flex items-center justify-between">
         <a
           href="#home"
           data-testid="navbar-logo"
-          className="flex items-center gap-2 text-[#2C1E16]"
+          className={`flex items-center gap-2 transition-colors ${
+            scrolled ? "text-[#2C1E16]" : "text-[#FDFBF7]"
+          }`}
         >
-          <Coffee className="w-5 h-5 text-[#C86F54]" strokeWidth={1.8} />
+          <Coffee
+            className={`w-5 h-5 ${scrolled ? "text-[#2F6042]" : "text-[#A9C3A2]"}`}
+            strokeWidth={1.8}
+          />
           <span className="font-serif text-2xl font-semibold tracking-tight">
             Gossip Cafe
           </span>
@@ -51,7 +56,11 @@ const Navbar = () => {
               key={l.href}
               href={l.href}
               data-testid={`nav-link-${l.href.replace("#", "")}`}
-              className="text-[#5C4A3D] hover:text-[#C86F54] font-medium transition-colors text-sm uppercase tracking-wider"
+              className={`font-medium transition-colors text-sm uppercase tracking-wider ${
+                scrolled
+                  ? "text-[#5C4A3D] hover:text-[#2F6042]"
+                  : "text-[#FDFBF7]/90 hover:text-[#FDFBF7]"
+              }`}
             >
               {l.label}
             </a>
@@ -60,7 +69,9 @@ const Navbar = () => {
 
         <div className="flex items-center gap-4">
           <div
-            className="flex items-center gap-1 rounded-full border border-[#2C1E16]/15 p-1"
+            className={`flex items-center gap-1 rounded-full border p-1 transition-colors ${
+              scrolled ? "border-[#2C1E16]/15" : "border-[#FDFBF7]/40"
+            }`}
             data-testid="language-switcher"
           >
             {LANGUAGES.map((l) => (
@@ -70,8 +81,12 @@ const Navbar = () => {
                 data-testid={`lang-btn-${l.code}`}
                 className={`px-2.5 py-1 rounded-full text-xs font-semibold tracking-wider transition-all ${
                   lang === l.code
-                    ? "bg-[#2C1E16] text-[#FDFBF7]"
-                    : "text-[#5C4A3D] hover:text-[#2C1E16]"
+                    ? scrolled
+                      ? "bg-[#2C1E16] text-[#FDFBF7]"
+                      : "bg-[#FDFBF7] text-[#2C1E16]"
+                    : scrolled
+                    ? "text-[#5C4A3D] hover:text-[#2C1E16]"
+                    : "text-[#FDFBF7]/85 hover:text-[#FDFBF7]"
                 }`}
               >
                 {l.label}
@@ -82,13 +97,15 @@ const Navbar = () => {
           <a
             href="#contact"
             data-testid="navbar-book-btn"
-            className="hidden sm:inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-[#C86F54] text-[#FDFBF7] font-medium text-sm transition-all hover:bg-[#B35A3F] hover:-translate-y-0.5"
+            className="hidden sm:inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-[#2F6042] text-[#FDFBF7] font-medium text-sm transition-all hover:bg-[#234B33] hover:-translate-y-0.5"
           >
             {t.nav.book}
           </a>
 
           <button
-            className="lg:hidden text-[#2C1E16]"
+            className={`lg:hidden transition-colors ${
+              scrolled ? "text-[#2C1E16]" : "text-[#FDFBF7]"
+            }`}
             onClick={() => setOpen(!open)}
             data-testid="mobile-menu-toggle"
             aria-label="Toggle menu"
@@ -116,7 +133,7 @@ const Navbar = () => {
           <a
             href="#contact"
             onClick={close}
-            className="inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-[#C86F54] text-[#FDFBF7] font-medium text-sm"
+            className="inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-[#2F6042] text-[#FDFBF7] font-medium text-sm"
           >
             {t.nav.book}
           </a>
