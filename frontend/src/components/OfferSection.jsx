@@ -8,14 +8,17 @@ const ICONS = { Sun, Utensils, Coffee, ShoppingBag, Users, Dog };
 
 const OfferCard = ({ item, i, variant, className = "" }) => {
   const Icon = ICONS[item.icon] || Coffee;
+  const isMobile = variant === "mobile";
   return (
     <motion.div
-      initial={{ opacity: 0, y: 24 }}
+      initial={{ opacity: 0, y: isMobile ? 0 : 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.6, ease: "easeOut", delay: i * 0.07 }}
       data-testid={`offer-card-${variant}-${i}`}
-      className={`bg-[#FDFBF7] p-8 sm:p-10 rounded-3xl border border-[#2C1E16]/5 transition-transform hover:-translate-y-1.5 ${className}`}
+      className={`bg-[#FDFBF7] p-7 sm:p-10 rounded-3xl border border-[#2C1E16]/5 transition-transform ${
+        isMobile ? "" : "hover:-translate-y-1.5"
+      } ${className}`}
     >
       <div className="w-12 h-12 rounded-full bg-[#F5F2EB] flex items-center justify-center text-[#2F6042] mb-6 shadow-sm">
         <Icon className="w-6 h-6" strokeWidth={1.8} />

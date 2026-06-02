@@ -35,6 +35,16 @@ Build a landing page for Gossip Cafe (Kraków) using pinned context (FB page + p
 - Menu: items+image in one row from 768px (md); image shorter height (aspect-[21/9]) between 640–767px, portrait at md+
 - Tested via testing_agent_v3 (iteration_2): 100% frontend pass across 390/640/768/1920px
 
+## Updated (2026-02) — Interaction & detail polish
+- Animated mobile burger menu (AnimatePresence: rotate icon swap + height/opacity reveal)
+- Active buttons changed brown→green (#2F6042): language switcher, menu category tabs
+- Mobile carousels now show a scroll-hint UI (ScrollHint.jsx, animated chevron + localized "swipe" label EN/PL/DE) so they no longer look broken
+- Fixed carousel vertical-scroll bug (overflow-y-hidden + items-stretch + removed entrance y-transform on mobile offer cards to prevent content clipping)
+- Footer recolored brown→deep green (#234B33); toast styling matched
+- About "Kraków / Świętego Jana 30" address card recolored brown→green (#2F6042)
+- Reservation time field is now a 30-min slot dropdown (24h), bounded by café working hours of the selected date (Mon–Fri 08:00–14:00, Sat–Sun 07:30–15:30; last slot = 1h before close); HOURS config in content.js; time resets if it falls outside the newly picked day's range
+- Tested via testing_agent_v3 (iteration_3): 100% frontend pass (22/22)
+
 ## Backlog
 - P1: Persist selected language to localStorage (manual switch reverts to PL on reload)
 - P2: Wire reservation form to a real backend + email/notification (also remove console.log PII, enforce guests/date validation)
