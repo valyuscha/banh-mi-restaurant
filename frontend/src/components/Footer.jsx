@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <footer
       data-testid="main-footer"
-      className="bg-[#234B33] text-[#FDFBF7]/80 py-16"
+      className="bg-[#2B2A27] text-[#FDFBF7]/80 py-16"
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-12 grid md:grid-cols-3 gap-10">
         <div>
