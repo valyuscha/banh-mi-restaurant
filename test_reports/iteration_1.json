@@ -22,6 +22,6 @@
   "seed_data_creation": "None",
   "retest_needed": false,
   "main_agent_can_self_test": true,
-  "context_for_next_testing_agent": "Public URL: https://cafe-booking-demo-1.preview.emergentagent.com. Frontend-only. Verified via Playwright with console-log capture. Reservation submit emits a single console.log line starting with 'Gossip Cafe — New Reservation Request:' containing {name, phone, date(yyyy-MM-dd), time, guests, notes, submittedAt}. Toast renders inside [data-sonner-toast] container at bottom-right. Calendar uses 'button[name=\"day\"]:not([disabled])' selectors. 7 menu tabs (menu-tab-0..6), 5 gallery (gallery-image-0..4), 6 offer cards (offer-card-0..5). Language switch keys: lang-btn-en/pl/de.",
+  "context_for_next_testing_agent": "Public URL: https://banh-mi-cafe.preview.emergentagent.com. Frontend-only. Verified via Playwright with console-log capture. Reservation submit emits a single console.log line starting with 'Gossip Cafe — New Reservation Request:' containing {name, phone, date(yyyy-MM-dd), time, guests, notes, submittedAt}. Toast renders inside [data-sonner-toast] container at bottom-right. Calendar uses 'button[name=\"day\"]:not([disabled])' selectors. 7 menu tabs (menu-tab-0..6), 5 gallery (gallery-image-0..4), 6 offer cards (offer-card-0..5). Language switch keys: lang-btn-en/pl/de.",
   "rca of the issue": "No issues to RCA — all flows functioning as designed."
 }
