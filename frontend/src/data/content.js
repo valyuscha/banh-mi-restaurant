@@ -431,14 +431,14 @@ export const HOURS = {
 };
 
 export const MEDIA = {
-  hero: "https://images.unsplash.com/photo-1600454309261-3dc9b7597637",
-  about: "https://images.pexels.com/photos/33885703/pexels-photo-33885703.jpeg",
-  menuHighlight: "https://images.pexels.com/photos/6646351/pexels-photo-6646351.jpeg",
+  hero: "https://images.pexels.com/photos/32961655/pexels-photo-32961655.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=900&w=1400",
+  about: "https://images.unsplash.com/photo-1748596161492-0ebbc90489a5?crop=entropy&cs=srgb&fm=jpg&q=85&w=1000",
+  menuHighlight: "https://images.pexels.com/photos/4153908/pexels-photo-4153908.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=900&w=900",
   gallery: [
-    { url: "https://images.unsplash.com/photo-1599719455360-ff0be7c4dd06", alt: "Bánh Mì sandwich close-up on a wooden board" },
-    { url: "https://images.unsplash.com/photo-1715925717150-2a6d181d8846", alt: "Hands preparing Vietnamese Bánh Mì with fresh ingredients" },
-    { url: "https://images.pexels.com/photos/6646072/pexels-photo-6646072.jpeg", alt: "Bowl of phở overhead with herbs and chili" },
-    { url: "https://images.unsplash.com/photo-1711333929319-0fc535e9d306", alt: "Cozy Vietnamese restaurant interior with warm red lamps" },
-    { url: "https://images.pexels.com/photos/3663347/pexels-photo-3663347.jpeg", alt: "Authentic phở soup with fresh herbs and lime" },
+    { url: "https://images.unsplash.com/photo-1627309302198-09a50ae1b209?crop=entropy&cs=srgb&fm=jpg&q=85&w=1000", alt: "Bánh Mì sandwich close-up with fresh ingredients" },
+    { url: "https://images.pexels.com/photos/36752868/pexels-photo-36752868.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=940", alt: "Vietnamese spring rolls served with dipping sauce" },
+    { url: "https://images.pexels.com/photos/2133989/pexels-photo-2133989.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=940", alt: "Steaming bowl of phở with herbs and chili" },
+    { url: "https://images.pexels.com/photos/34623149/pexels-photo-34623149.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=940", alt: "Fresh spring rolls detail on a plate" },
+    { url: "https://images.pexels.com/photos/31990173/pexels-photo-31990173.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=940", alt: "Vietnamese iced coffee" },
   ],
 };

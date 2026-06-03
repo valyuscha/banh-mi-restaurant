@@ -4,9 +4,9 @@ import { ChevronsRight } from "lucide-react";
 export const ScrollHint = ({ label, className = "" }) => (
   <div
     data-testid="carousel-scroll-hint"
-    className={`flex items-center justify-center gap-2 mt-5 text-[#2F6042] ${className}`}
+    className={`flex items-center justify-center gap-2 mt-5 text-[#1A3B26] ${className}`}
   >
-    <span className="text-xs uppercase tracking-[0.18em] font-semibold text-[#5C4A3D]">
+    <span className="text-xs uppercase tracking-[0.18em] font-semibold text-[#4A4038]">
       {label}
     </span>
     <motion.span

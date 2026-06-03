@@ -20,15 +20,15 @@ const Gallery = () => {
     <section
       id="gallery"
       data-testid="gallery-section"
-      className="py-12 sm:py-32 bg-[#FDFBF7]"
+      className="py-12 sm:py-32 bg-[#F9F3EA]"
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-12">
         <Reveal className="max-w-2xl">
           <Overline>{t.gallery.overline}</Overline>
-          <h2 className="font-serif text-4xl sm:text-5xl text-[#2C1E16] tracking-tight mt-4">
+          <h2 className="font-serif text-4xl sm:text-5xl text-[#111111] tracking-tight mt-4">
             {t.gallery.title}
           </h2>
-          <p className="text-[#5C4A3D] text-lg mt-4 leading-relaxed">{t.gallery.body}</p>
+          <p className="text-[#4A4038] text-lg mt-4 leading-relaxed">{t.gallery.body}</p>
         </Reveal>
 
         {/* Mobile: horizontal snap carousel */}
@@ -72,7 +72,7 @@ const Gallery = () => {
                 alt={img.alt}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#2C1E16]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#111111]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </motion.div>
           ))}
         </div>

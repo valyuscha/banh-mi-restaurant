@@ -16,10 +16,10 @@ import {
 } from "@/components/ui/select";
 
 const inputCls =
-  "w-full h-[54px] bg-[#F7F4EE] border border-[#2C1E16]/10 rounded-xl px-4 py-3.5 text-[#2C1E16] placeholder:text-[#2C1E16]/40 focus:outline-none focus:border-[#2F6042] focus:ring-2 focus:ring-[#2F6042]/20 transition-all";
+  "w-full h-[54px] bg-[#EFE3D2] border border-[#111111]/10 rounded-xl px-4 py-3.5 text-[#111111] placeholder:text-[#111111]/40 focus:outline-none focus:border-[#1A3B26] focus:ring-2 focus:ring-[#1A3B26]/20 transition-all";
 
 const labelCls =
-  "block text-xs uppercase tracking-[0.15em] font-semibold text-[#5C4A3D] mb-2";
+  "block text-xs uppercase tracking-[0.15em] font-semibold text-[#4A4038] mb-2";
 
 const toMinutes = (hhmm) => {
   const [h, m] = hhmm.split(":").map(Number);
@@ -70,7 +70,7 @@ const Reservation = () => {
       notes,
       submittedAt: new Date().toISOString(),
     };
-    console.log("Gossip Cafe — New Reservation Request:", reservation);
+    console.log("Banh Mi Dzień Dobry — New Reservation Request:", reservation);
     toast.success(r.success, {
       icon: <Check className="w-4 h-4" />,
     });
@@ -86,20 +86,20 @@ const Reservation = () => {
     <section
       id="contact"
       data-testid="reservation-section"
-      className="py-12 sm:py-32 bg-[#FDFBF7]"
+      className="py-12 sm:py-32 bg-[#F9F3EA]"
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-12 grid lg:grid-cols-[1.15fr_0.85fr] gap-12 lg:gap-16 items-start">
         <Reveal>
           <Overline>{r.overline}</Overline>
-          <h2 className="font-serif text-4xl sm:text-5xl text-[#2C1E16] tracking-tight mt-4">
+          <h2 className="font-serif text-4xl sm:text-5xl text-[#111111] tracking-tight mt-4">
             {r.title}
           </h2>
-          <p className="text-[#5C4A3D] text-lg mt-4 leading-relaxed max-w-md">{r.body}</p>
+          <p className="text-[#4A4038] text-lg mt-4 leading-relaxed max-w-md">{r.body}</p>
 
           <form
             onSubmit={handleSubmit}
             data-testid="reservation-form"
-            className="mt-8 bg-white rounded-[2rem] border border-[#2C1E16]/8 shadow-[0_18px_50px_-25px_rgba(44,30,22,0.35)] p-6 sm:p-9 space-y-6"
+            className="mt-8 bg-white rounded-[2rem] border border-[#111111]/8 shadow-[0_18px_50px_-25px_rgba(44,30,22,0.35)] p-6 sm:p-9 space-y-6"
           >
             <div className="grid sm:grid-cols-2 gap-5">
               <div>
@@ -139,14 +139,14 @@ const Reservation = () => {
                       type="button"
                       data-testid="res-date-trigger"
                       className={`${inputCls} flex items-center justify-between text-left ${
-                        date ? "text-[#2C1E16]" : "text-[#2C1E16]/40"
+                        date ? "text-[#111111]" : "text-[#111111]/40"
                       }`}
                     >
                       {date ? format(date, "PPP") : r.fields.date}
-                      <CalendarIcon className="w-4 h-4 text-[#2F6042]" />
+                      <CalendarIcon className="w-4 h-4 text-[#1A3B26]" />
                     </button>
                   </PopoverTrigger>
-                  <PopoverContent className="w-auto p-0 bg-[#FDFBF7]" align="start">
+                  <PopoverContent className="w-auto p-0 bg-[#F9F3EA]" align="start">
                     <Calendar
                       mode="single"
                       selected={date}
@@ -164,11 +164,11 @@ const Reservation = () => {
                   <SelectTrigger
                     id="res-time"
                     data-testid="res-time-trigger"
-                    className={`${inputCls} ${time ? "text-[#2C1E16]" : "text-[#2C1E16]/40"}`}
+                    className={`${inputCls} ${time ? "text-[#111111]" : "text-[#111111]/40"}`}
                   >
                     <SelectValue placeholder={r.fields.time} />
                   </SelectTrigger>
-                  <SelectContent className="bg-[#FDFBF7] max-h-60">
+                  <SelectContent className="bg-[#F9F3EA] max-h-60">
                     {timeSlots.map((slot) => (
                       <SelectItem
                         key={slot}
@@ -188,11 +188,11 @@ const Reservation = () => {
               <Select value={guests} onValueChange={setGuests} required>
                 <SelectTrigger
                   data-testid="res-guests-trigger"
-                  className={`${inputCls} ${guests ? "text-[#2C1E16]" : "text-[#2C1E16]/40"}`}
+                  className={`${inputCls} ${guests ? "text-[#111111]" : "text-[#111111]/40"}`}
                 >
                   <SelectValue placeholder={r.fields.guests} />
                 </SelectTrigger>
-                <SelectContent className="bg-[#FDFBF7]">
+                <SelectContent className="bg-[#F9F3EA]">
                   {r.guestOptions.map((g, i) => (
                     <SelectItem key={i} value={g} data-testid={`res-guest-option-${i}`}>
                       {g}
@@ -218,7 +218,7 @@ const Reservation = () => {
             <button
               type="submit"
               data-testid="res-submit-btn"
-              className="w-full inline-flex items-center justify-center px-8 py-4 rounded-xl bg-[#2F6042] text-[#FDFBF7] font-medium transition-all hover:bg-[#234B33] hover:-translate-y-0.5"
+              className="w-full inline-flex items-center justify-center px-8 py-4 rounded-xl bg-[#1A3B26] text-[#F9F3EA] font-medium transition-all hover:bg-[#112618] hover:-translate-y-0.5"
             >
               {r.submit}
             </button>
@@ -226,39 +226,39 @@ const Reservation = () => {
         </Reveal>
 
         <Reveal delay={0.15}>
-          <div className="bg-[#F5F2EB] rounded-[2rem] p-8 sm:p-10 h-full flex flex-col gap-8">
+          <div className="bg-[#EFE3D2] rounded-[2rem] p-8 sm:p-10 h-full flex flex-col gap-8">
             <div>
-              <div className="flex items-center gap-2 text-[#2F6042]">
+              <div className="flex items-center gap-2 text-[#1A3B26]">
                 <Clock className="w-5 h-5" strokeWidth={1.8} />
-                <h3 className="font-serif text-2xl text-[#2C1E16]">{r.hoursTitle}</h3>
+                <h3 className="font-serif text-2xl text-[#111111]">{r.hoursTitle}</h3>
               </div>
               <div className="mt-5 space-y-3">
                 {r.hours.map((h, i) => (
                   <div
                     key={i}
                     data-testid={`hours-row-${i}`}
-                    className="flex items-center justify-between border-b border-dashed border-[#2C1E16]/20 pb-3"
+                    className="flex items-center justify-between border-b border-dashed border-[#111111]/20 pb-3"
                   >
-                    <span className="text-[#5C4A3D]">{h.day}</span>
-                    <span className="font-medium text-[#2C1E16]">{h.time}</span>
+                    <span className="text-[#4A4038]">{h.day}</span>
+                    <span className="font-medium text-[#111111]">{h.time}</span>
                   </div>
                 ))}
               </div>
             </div>
 
             <div>
-              <div className="flex items-center gap-2 text-[#2F6042]">
+              <div className="flex items-center gap-2 text-[#1A3B26]">
                 <MapPin className="w-5 h-5" strokeWidth={1.8} />
-                <h3 className="font-serif text-2xl text-[#2C1E16]">{r.contactTitle}</h3>
+                <h3 className="font-serif text-2xl text-[#111111]">{r.contactTitle}</h3>
               </div>
-              <div className="mt-5 space-y-2 text-[#5C4A3D]">
-                <p className="font-medium text-[#2C1E16]">{CONTACT.name}</p>
+              <div className="mt-5 space-y-2 text-[#4A4038]">
+                <p className="font-medium text-[#111111]">{CONTACT.name}</p>
                 <p>{CONTACT.street}</p>
                 <p>{CONTACT.city}</p>
                 <a
                   href={CONTACT.phoneHref}
                   data-testid="contact-phone-link"
-                  className="inline-flex items-center gap-2 mt-2 text-[#2F6042] hover:text-[#234B33] transition-colors"
+                  className="inline-flex items-center gap-2 mt-2 text-[#1A3B26] hover:text-[#112618] transition-colors"
                 >
                   <Phone className="w-4 h-4" /> {CONTACT.phone}
                 </a>
@@ -270,7 +270,7 @@ const Reservation = () => {
               target="_blank"
               rel="noopener noreferrer"
               data-testid="map-link"
-              className="mt-auto inline-flex items-center justify-center px-7 py-3 rounded-full border border-[#2C1E16] text-[#2C1E16] font-medium transition-all hover:bg-[#2F6042] hover:text-[#FDFBF7]"
+              className="mt-auto inline-flex items-center justify-center px-7 py-3 rounded-full border border-[#111111] text-[#111111] font-medium transition-all hover:bg-[#1A3B26] hover:text-[#F9F3EA]"
             >
               {t.reservation.openMap}
             </a>

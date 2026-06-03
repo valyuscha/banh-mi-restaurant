@@ -1,51 +1,30 @@
-# Gossip Cafe — Landing Page PRD
+# Banh Mi Dzień Dobry — Restaurant Landing Page
 
 ## Problem Statement
-Build a landing page for Gossip Cafe (Kraków) using pinned context (FB page + provided menu/sales content).
+Cloned a cafe template (`gossip-cafe`) and rebranded it into **Banh Mi Dzień Dobry** — a Vietnamese street food restaurant in Kraków (Mazowiecka 26B, 30-019 Kraków). Keep ALL existing structure, layout, Framer Motion animations and the EN/PL/DE language switcher intact. Only text, images, colors and fonts change.
 
-## User Choices
-- Single-page scroll with anchored nav
-- "Book a Table" form: captures structured data, outputs via console.log (NO backend/DB)
-- Language switcher EN / PL / DE
-- Warm, cozy, earthy color theme (coffee/cream)
-- Curated stock imagery for gallery
+## Tech Stack
+- Frontend: React + TailwindCSS + Framer Motion, multilingual via Context API (`LanguageContext`)
+- Backend: FastAPI (not used for content; reservation form logs to console only)
+- DB: MongoDB (unused for this content task)
 
 ## Architecture
-- Frontend-only React app (no backend changes). Default FastAPI/Mongo template untouched.
-- LanguageContext provides EN/PL/DE content from src/data/content.js
-- Sections: Hero, About, Menu (7 categories, animated tabs), Gallery (bento grid), Offer (6 cards), Reservation+Hours+Contact, Footer
-- Design system from design_guidelines.json: Cormorant Garamond + Outfit fonts; bone/espresso/terracotta/sage palette
-- Reservation form: shadcn Calendar (date), Select (guests), inputs; submit -> console.log + sonner toast + reset
+- `frontend/src/data/content.js` — single source of truth for EN/PL/DE text, CONTACT, HOURS, MEDIA images
+- `frontend/src/components/` — Navbar, Hero, About, MenuSection, Gallery, OfferSection, Reservation, Footer (+ Reveal, ScrollHint, ProgressiveImage)
+- `frontend/src/index.css` + `App.css` — fonts + shadcn HSL CSS variables
+- Colors are hardcoded hex inside JSX (not tokens)
 
-## Implemented (2025-12)
-- Full single-page landing with smooth-scroll anchored navbar + mobile menu
-- EN/PL/DE language switcher (all copy + full menu translated)
-- Animated menu category tabs with PLN prices
-- Bento gallery, offer cards, reservation form, opening hours, contact, Google Maps link, footer (phone + Facebook)
-- Tested via testing_agent_v3: 100% frontend pass
+## Design System (implemented 2026-06-03)
+Vietnamese street food vibe per `/app/design_guidelines.json`:
+- Warm Beige bg `#F9F3EA`, Deep Red `#A11D1C`, Dark Green `#1A3B26`, Black text `#111111`
+- Secondary beige `#EFE3D2`, dark-green hover `#112618`, muted text `#4A4038`, warm-sand accent on dark `#E8C9A0`
+- Fonts: headings **Chivo** (`.font-serif` class), body **Manrope**
+- Hex map applied via sed across all components; shadcn `:root` HSL vars updated to match
 
-## Updated (2026-02) — Design refresh + responsive overhaul
-- Color palette switched to forest-green accent (#2F6042 / hover #234B33) per reference; replaced old coral #C86F54 across all components, selection, scrollbar, and CSS accent vars. Light sage #A9C3A2 for accents on dark backgrounds.
-- Navbar now readable over hero: light text + subtle dark gradient at top, dark text + blurred light bg after scroll (24px threshold)
-- Default auto-selected language changed to PL (LanguageContext useState('pl'))
-- Reservation form redesigned: elevated white card, boxed labeled inputs (bg #F7F4EE), green focus ring, full-width green submit (still console.log only — mocked, logs PII)
-- Gallery: horizontal snap carousel on mobile (<768px), bento grid on md+
-- Offer cards: horizontal snap carousel on mobile (<640px, shows 1–2 cards by width), grid on sm+; unique testids offer-card-{mobile|desktop}-{i}
-- About: image side-by-side with text from 640px (sm:grid-cols-2)
-- Menu: items+image in one row from 768px (md); image shorter height (aspect-[21/9]) between 640–767px, portrait at md+
-- Tested via testing_agent_v3 (iteration_2): 100% frontend pass across 390/640/768/1920px
+## Completed
+- 2026-06-03: Full rebrand + redesign. Removed all "Gossip Cafe" / old address leftovers (Navbar, Footer, About address→Mazowiecka 26B, MenuSection alt, Reservation console, index.html title/meta/theme-color). Swapped Coffee→UtensilsCrossed icon. Added Bike/Leaf icons to Offer map (were falling back to Coffee). Replaced hero/about/menu/gallery images with authentic Vietnamese food photos. Font + color overhaul. Lint clean, smoke test passed.
 
-## Updated (2026-02) — Interaction & detail polish
-- Animated mobile burger menu (AnimatePresence: rotate icon swap + height/opacity reveal)
-- Active buttons changed brown→green (#2F6042): language switcher, menu category tabs
-- Mobile carousels now show a scroll-hint UI (ScrollHint.jsx, animated chevron + localized "swipe" label EN/PL/DE) so they no longer look broken
-- Fixed carousel vertical-scroll bug (overflow-y-hidden + items-stretch + removed entrance y-transform on mobile offer cards to prevent content clipping)
-- Footer recolored brown→deep green (#234B33); toast styling matched
-- About "Kraków / Świętego Jana 30" address card recolored brown→green (#2F6042)
-- Reservation time field is now a 30-min slot dropdown (24h), bounded by café working hours of the selected date (Mon–Fri 08:00–14:00, Sat–Sun 07:30–15:30; last slot = 1h before close); HOURS config in content.js; time resets if it falls outside the newly picked day's range
-- Tested via testing_agent_v3 (iteration_3): 100% frontend pass (22/22)
-
-## Backlog
-- P1: Persist selected language to localStorage (manual switch reverts to PL on reload)
-- P2: Wire reservation form to a real backend + email/notification (also remove console.log PII, enforce guests/date validation)
-- P2: Add Google Maps embed, Instagram feed, online ordering/takeaway
+## Backlog / Future (P2)
+- Wire reservation form to a real backend endpoint + persist to MongoDB (currently console.log only)
+- Remove stale hero `<link rel="preload">` in index.html (old emergent png, harmless)
+- Optionally move remaining hardcoded strings/alts into content.js for full i18n coverage

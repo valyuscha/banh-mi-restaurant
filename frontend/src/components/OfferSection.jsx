@@ -1,10 +1,10 @@
-import { Sun, Utensils, Coffee, ShoppingBag, Users, Dog } from "lucide-react";
+import { Sun, Utensils, Coffee, ShoppingBag, Users, Dog, Bike, Leaf } from "lucide-react";
 import { motion } from "framer-motion";
 import { Reveal, Overline } from "@/components/Reveal";
 import { ScrollHint } from "@/components/ScrollHint";
 import { useLanguage } from "@/context/LanguageContext";
 
-const ICONS = { Sun, Utensils, Coffee, ShoppingBag, Users, Dog };
+const ICONS = { Sun, Utensils, Coffee, ShoppingBag, Users, Dog, Bike, Leaf };
 
 const OfferCard = ({ item, i, variant, className = "" }) => {
   const Icon = ICONS[item.icon] || Coffee;
@@ -16,15 +16,15 @@ const OfferCard = ({ item, i, variant, className = "" }) => {
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.6, ease: "easeOut", delay: i * 0.07 }}
       data-testid={`offer-card-${variant}-${i}`}
-      className={`bg-[#FDFBF7] p-7 sm:p-10 rounded-3xl border border-[#2C1E16]/5 transition-transform ${
+      className={`bg-[#F9F3EA] p-7 sm:p-10 rounded-3xl border border-[#111111]/5 transition-transform ${
         isMobile ? "" : "hover:-translate-y-1.5"
       } ${className}`}
     >
-      <div className="w-12 h-12 rounded-full bg-[#F5F2EB] flex items-center justify-center text-[#2F6042] mb-6 shadow-sm">
+      <div className="w-12 h-12 rounded-full bg-[#EFE3D2] flex items-center justify-center text-[#1A3B26] mb-6 shadow-sm">
         <Icon className="w-6 h-6" strokeWidth={1.8} />
       </div>
-      <h3 className="font-serif text-2xl text-[#2C1E16]">{item.title}</h3>
-      <p className="text-[#5C4A3D] mt-2 leading-relaxed">{item.text}</p>
+      <h3 className="font-serif text-2xl text-[#111111]">{item.title}</h3>
+      <p className="text-[#4A4038] mt-2 leading-relaxed">{item.text}</p>
     </motion.div>
   );
 };
@@ -36,12 +36,12 @@ const OfferSection = () => {
     <section
       id="offer"
       data-testid="offer-section"
-      className="py-12 sm:py-32 bg-[#F5F2EB]"
+      className="py-12 sm:py-32 bg-[#EFE3D2]"
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-12">
         <Reveal className="text-center max-w-2xl mx-auto">
           <Overline>{t.offer.overline}</Overline>
-          <h2 className="font-serif text-4xl sm:text-5xl text-[#2C1E16] tracking-tight mt-4">
+          <h2 className="font-serif text-4xl sm:text-5xl text-[#111111] tracking-tight mt-4">
             {t.offer.title}
           </h2>
         </Reveal>

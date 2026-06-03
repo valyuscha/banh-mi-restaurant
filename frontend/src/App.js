@@ -13,7 +13,7 @@ import Footer from "@/components/Footer";
 function App() {
   return (
     <LanguageProvider>
-      <div className="App bg-[#FDFBF7] min-h-screen antialiased">
+      <div className="App bg-[#F9F3EA] min-h-screen antialiased">
         <Navbar />
         <main>
           <Hero />
@@ -28,8 +28,8 @@ function App() {
           position="bottom-right"
           toastOptions={{
             style: {
-              background: "#234B33",
-              color: "#FDFBF7",
+              background: "#112618",
+              color: "#F9F3EA",
               border: "1px solid rgba(253,251,247,0.15)",
             },
           }}

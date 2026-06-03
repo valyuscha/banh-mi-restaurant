@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Coffee, Menu as MenuIcon, X } from "lucide-react";
+import { UtensilsCrossed, Menu as MenuIcon, X } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { LANGUAGES } from "@/data/content";
 
@@ -38,8 +38,8 @@ const Navbar = () => {
       data-testid="main-navbar"
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         scrolled
-          ? "backdrop-blur-xl bg-[#FDFBF7]/90 border-b border-[#2C1E16]/10 py-3"
-          : "bg-gradient-to-b from-[#2C1E16]/45 to-transparent py-5"
+          ? "backdrop-blur-xl bg-[#F9F3EA]/90 border-b border-[#111111]/10 py-3"
+          : "bg-gradient-to-b from-[#111111]/45 to-transparent py-5"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-12 flex items-center justify-between">
@@ -47,15 +47,15 @@ const Navbar = () => {
           href="#home"
           data-testid="navbar-logo"
           className={`flex items-center gap-2 transition-colors ${
-            scrolled ? "text-[#2C1E16]" : "text-[#FDFBF7]"
+            scrolled ? "text-[#111111]" : "text-[#F9F3EA]"
           }`}
         >
-          <Coffee
-            className={`w-5 h-5 ${scrolled ? "text-[#2F6042]" : "text-[#A9C3A2]"}`}
+          <UtensilsCrossed
+            className={`w-5 h-5 ${scrolled ? "text-[#A11D1C]" : "text-[#E8C9A0]"}`}
             strokeWidth={1.8}
           />
-          <span className="font-serif text-2xl font-semibold tracking-tight">
-            Gossip Cafe
+          <span className="font-serif text-xl sm:text-2xl font-extrabold tracking-tight">
+            Banh Mi Dzień Dobry
           </span>
         </a>
 
@@ -67,8 +67,8 @@ const Navbar = () => {
               data-testid={`nav-link-${l.href.replace("#", "")}`}
               className={`font-medium transition-colors text-sm uppercase tracking-wider ${
                 scrolled
-                  ? "text-[#5C4A3D] hover:text-[#2F6042]"
-                  : "text-[#FDFBF7]/90 hover:text-[#FDFBF7]"
+                  ? "text-[#4A4038] hover:text-[#1A3B26]"
+                  : "text-[#F9F3EA]/90 hover:text-[#F9F3EA]"
               }`}
             >
               {l.label}
@@ -79,7 +79,7 @@ const Navbar = () => {
         <div className="flex items-center gap-4">
           <div
             className={`flex items-center gap-1 rounded-full border p-1 transition-colors ${
-              scrolled ? "border-[#2C1E16]/15" : "border-[#FDFBF7]/40"
+              scrolled ? "border-[#111111]/15" : "border-[#F9F3EA]/40"
             }`}
             data-testid="language-switcher"
           >
@@ -90,10 +90,10 @@ const Navbar = () => {
                 data-testid={`lang-btn-${l.code}`}
                 className={`px-2.5 py-1 rounded-full text-xs font-semibold tracking-wider transition-all ${
                   lang === l.code
-                    ? "bg-[#2F6042] text-[#FDFBF7]"
+                    ? "bg-[#1A3B26] text-[#F9F3EA]"
                     : scrolled
-                    ? "text-[#5C4A3D] hover:text-[#2C1E16]"
-                    : "text-[#FDFBF7]/85 hover:text-[#FDFBF7]"
+                    ? "text-[#4A4038] hover:text-[#111111]"
+                    : "text-[#F9F3EA]/85 hover:text-[#F9F3EA]"
                 }`}
               >
                 {l.label}
@@ -104,14 +104,14 @@ const Navbar = () => {
           <a
             href="#contact"
             data-testid="navbar-book-btn"
-            className="hidden sm:inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-[#2F6042] text-[#FDFBF7] font-medium text-sm transition-all hover:bg-[#234B33] hover:-translate-y-0.5"
+            className="hidden sm:inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-[#1A3B26] text-[#F9F3EA] font-medium text-sm transition-all hover:bg-[#112618] hover:-translate-y-0.5"
           >
             {t.nav.book}
           </a>
 
           <button
             className={`lg:hidden transition-colors ${
-              scrolled ? "text-[#2C1E16]" : "text-[#FDFBF7]"
+              scrolled ? "text-[#111111]" : "text-[#F9F3EA]"
             }`}
             onClick={() => setOpen(!open)}
             data-testid="mobile-menu-toggle"
@@ -157,7 +157,7 @@ const Navbar = () => {
             className="lg:hidden overflow-hidden"
           >
             <div
-              className="mt-3 mx-4 rounded-2xl bg-[#FDFBF7] border border-[#2C1E16]/10 shadow-xl p-5 flex flex-col gap-4"
+              className="mt-3 mx-4 rounded-2xl bg-[#F9F3EA] border border-[#111111]/10 shadow-xl p-5 flex flex-col gap-4"
               data-testid="mobile-menu"
             >
               {links.map((l) => (
@@ -165,7 +165,7 @@ const Navbar = () => {
                   key={l.href}
                   href={l.href}
                   onClick={(e) => handleMobileLink(e, l.href)}
-                  className="text-[#2C1E16] font-medium text-sm uppercase tracking-wider hover:text-[#2F6042] transition-colors"
+                  className="text-[#111111] font-medium text-sm uppercase tracking-wider hover:text-[#1A3B26] transition-colors"
                 >
                   {l.label}
                 </a>
@@ -173,7 +173,7 @@ const Navbar = () => {
               <a
                 href="#contact"
                 onClick={(e) => handleMobileLink(e, "#contact")}
-                className="inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-[#2F6042] text-[#FDFBF7] font-medium text-sm"
+                className="inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-[#1A3B26] text-[#F9F3EA] font-medium text-sm"
               >
                 {t.nav.book}
               </a>

@@ -15,15 +15,15 @@ const MenuSection = () => {
     <section
       id="menu"
       data-testid="menu-section"
-      className="py-12 sm:py-32 bg-[#F5F2EB]"
+      className="py-12 sm:py-32 bg-[#EFE3D2]"
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-12">
         <Reveal className="text-center max-w-2xl mx-auto">
           <Overline>{t.menu.overline}</Overline>
-          <h2 className="font-serif text-4xl sm:text-5xl text-[#2C1E16] tracking-tight mt-4">
+          <h2 className="font-serif text-4xl sm:text-5xl text-[#111111] tracking-tight mt-4">
             {t.menu.title}
           </h2>
-          <p className="text-[#5C4A3D] mt-4">{t.menu.note}</p>
+          <p className="text-[#4A4038] mt-4">{t.menu.note}</p>
         </Reveal>
 
         <Reveal delay={0.1}>
@@ -38,8 +38,8 @@ const MenuSection = () => {
                 data-testid={`menu-tab-${i}`}
                 className={`px-5 py-2 rounded-full text-sm font-medium transition-all ${
                   active === i
-                    ? "bg-[#2F6042] text-[#FDFBF7]"
-                    : "bg-[#FDFBF7] text-[#5C4A3D] hover:text-[#2C1E16] border border-[#2C1E16]/10"
+                    ? "bg-[#1A3B26] text-[#F9F3EA]"
+                    : "bg-[#F9F3EA] text-[#4A4038] hover:text-[#111111] border border-[#111111]/10"
                 }`}
               >
                 {c.name}
@@ -63,12 +63,12 @@ const MenuSection = () => {
                   <div
                     key={idx}
                     data-testid={`menu-item-${active}-${idx}`}
-                    className="flex items-end justify-between border-b border-dashed border-[#2C1E16]/25 pb-3"
+                    className="flex items-end justify-between border-b border-dashed border-[#111111]/25 pb-3"
                   >
-                    <span className="font-serif text-xl sm:text-2xl text-[#2C1E16] pr-4">
+                    <span className="font-serif text-xl sm:text-2xl text-[#111111] pr-4">
                       {item.name}
                     </span>
-                    <span className="font-medium text-[#2F6042] text-lg sm:text-xl whitespace-nowrap">
+                    <span className="font-medium text-[#1A3B26] text-lg sm:text-xl whitespace-nowrap">
                       {item.price} zł
                     </span>
                   </div>
@@ -81,7 +81,7 @@ const MenuSection = () => {
             <div className="overflow-hidden rounded-[2rem] aspect-[4/3] sm:aspect-[21/9] md:aspect-[3/4]">
               <ProgressiveImage
                 src={MEDIA.menuHighlight}
-                alt="Signature dishes at Gossip Cafe"
+                alt="Signature Bánh Mì and phở at Banh Mi Dzień Dobry"
                 className="w-full h-full object-cover"
               />
             </div>
