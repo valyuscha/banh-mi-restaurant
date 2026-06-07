@@ -20,7 +20,7 @@ const Gallery = () => {
     <section
       id="gallery"
       data-testid="gallery-section"
-      className="py-12 sm:py-32 bg-[#F9F3EA]"
+      className="py-8 sm:py-32 bg-[#F9F3EA] overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-12">
         <Reveal className="max-w-2xl">
@@ -35,7 +35,7 @@ const Gallery = () => {
         <div className="md:hidden mt-10">
           <div
             data-testid="gallery-carousel"
-            className="flex gap-4 -mx-6 px-6 overflow-x-auto overflow-y-hidden snap-x snap-mandatory scrollbar-hide pb-1 items-stretch"
+            className="flex gap-4 -mx-6 px-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-1 items-stretch"
           >
             {MEDIA.gallery.map((img, i) => (
               <div

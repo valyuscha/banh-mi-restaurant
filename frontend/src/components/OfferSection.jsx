@@ -36,7 +36,7 @@ const OfferSection = () => {
     <section
       id="offer"
       data-testid="offer-section"
-      className="py-12 sm:py-32 bg-[#EFE3D2]"
+      className="py-8 sm:py-32 bg-[#EFE3D2] overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-12">
         <Reveal className="text-center max-w-2xl mx-auto">
@@ -50,7 +50,7 @@ const OfferSection = () => {
         <div className="sm:hidden mt-12">
           <div
             data-testid="offer-carousel"
-            className="flex gap-5 -mx-6 px-6 overflow-x-auto overflow-y-hidden snap-x snap-mandatory scrollbar-hide pb-1 items-stretch"
+            className="flex gap-5 -mx-6 px-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-1 items-stretch"
           >
             {t.offer.items.map((item, i) => (
               <OfferCard

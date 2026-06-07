@@ -15,7 +15,7 @@ const MenuSection = () => {
     <section
       id="menu"
       data-testid="menu-section"
-      className="py-12 sm:py-32 bg-[#EFE3D2]"
+      className="py-8 sm:py-32 bg-[#EFE3D2]"
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-12">
         <Reveal className="text-center max-w-2xl mx-auto">
@@ -65,7 +65,7 @@ const MenuSection = () => {
                     data-testid={`menu-item-${active}-${idx}`}
                     className="flex items-end justify-between border-b border-dashed border-[#111111]/25 pb-3"
                   >
-                    <span className="font-serif text-xl sm:text-2xl text-[#111111] pr-4">
+                    <span className="font-serif text-lg sm:text-2xl text-[#111111] pr-4">
                       {item.name}
                     </span>
                     <span className="font-medium text-[#1A3B26] text-lg sm:text-xl whitespace-nowrap">

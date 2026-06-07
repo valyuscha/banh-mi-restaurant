@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "dev": "cd frontend && npm start",
     "build": "cd frontend && npm install --legacy-peer-deps && npm run build",
-    "start": "npx serve -s frontend/build -l $PORT"
+    "start": "npx serve -s frontend/build -p 3000"
   },
   "dependencies": {
     "serve": "^14.2.0"

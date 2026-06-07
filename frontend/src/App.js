@@ -7,7 +7,8 @@ import About from "@/components/About";
 import MenuSection from "@/components/MenuSection";
 import Gallery from "@/components/Gallery";
 import OfferSection from "@/components/OfferSection";
-import Reservation from "@/components/Reservation";
+import OrderOnline from "@/components/OrderOnline";
+import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
 function App() {
@@ -21,7 +22,8 @@ function App() {
           <MenuSection />
           <Gallery />
           <OfferSection />
-          <Reservation />
+          <OrderOnline />
+          <Contact />
         </main>
         <Footer />
         <Toaster

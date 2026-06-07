@@ -13,7 +13,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-6 sm:px-12 grid md:grid-cols-3 gap-10">
         <div>
           <div className="flex items-center gap-2 text-[#F9F3EA]">
-            <UtensilsCrossed className="w-5 h-5 text-[#A11D1C]" strokeWidth={1.8} />
+            <UtensilsCrossed className="w-5 h-5 text-[#E8C9A0]" strokeWidth={1.8} />
             <span className="font-serif text-2xl font-extrabold">Banh Mi Dzień Dobry</span>
           </div>
           <p className="mt-4 text-sm leading-relaxed max-w-xs">{t.footer.tagline}</p>

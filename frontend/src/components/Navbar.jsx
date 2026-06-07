@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { UtensilsCrossed, Menu as MenuIcon, X } from "lucide-react";
+import { Menu as MenuIcon, X } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { LANGUAGES } from "@/data/content";
 
@@ -46,17 +46,13 @@ const Navbar = () => {
         <a
           href="#home"
           data-testid="navbar-logo"
-          className={`flex items-center gap-2 transition-colors ${
-            scrolled ? "text-[#111111]" : "text-[#F9F3EA]"
-          }`}
+          className="flex items-center gap-3 transition-opacity hover:opacity-85"
         >
-          <UtensilsCrossed
-            className={`w-5 h-5 ${scrolled ? "text-[#A11D1C]" : "text-[#E8C9A0]"}`}
-            strokeWidth={1.8}
+          <img
+            src={`${process.env.PUBLIC_URL}/logo.png`}
+            alt="Banh Mi Dzień Dobry Logo"
+            className="w-14 h-14 rounded-full object-cover border-2 border-[#E8C9A0]/60"
           />
-          <span className="font-serif text-xl sm:text-2xl font-extrabold tracking-tight">
-            Banh Mi Dzień Dobry
-          </span>
         </a>
 
         <div className="hidden lg:flex items-center gap-9">
@@ -102,7 +98,7 @@ const Navbar = () => {
           </div>
 
           <a
-            href="#contact"
+            href="#order"
             data-testid="navbar-book-btn"
             className="hidden sm:inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-[#1A3B26] text-[#F9F3EA] font-medium text-sm transition-all hover:bg-[#112618] hover:-translate-y-0.5"
           >
@@ -171,8 +167,8 @@ const Navbar = () => {
                 </a>
               ))}
               <a
-                href="#contact"
-                onClick={(e) => handleMobileLink(e, "#contact")}
+                href="#order"
+                onClick={(e) => handleMobileLink(e, "#order")}
                 className="inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-[#1A3B26] text-[#F9F3EA] font-medium text-sm"
               >
                 {t.nav.book}

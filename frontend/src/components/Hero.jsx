@@ -37,10 +37,19 @@ const Hero = () => {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
-            className="font-serif text-5xl sm:text-6xl lg:text-7xl text-[#F9F3EA] tracking-tight leading-[1.02] mt-5"
+            className="font-serif text-4xl sm:text-5xl lg:text-6xl text-[#F9F3EA] tracking-tight leading-tight mt-5 mb-3"
+          >
+            Banh Mi Dzień Dobry
+          </motion.h1>
+
+          <motion.h2
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
+            className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#E8C9A0] tracking-tight leading-[1.1] mb-6"
           >
             {t.hero.title}
-          </motion.h1>
+          </motion.h2>
 
           <motion.p
             initial={{ opacity: 0, y: 24 }}
@@ -58,7 +67,7 @@ const Hero = () => {
             className="flex flex-wrap items-center gap-4 mt-10"
           >
             <a
-              href="#contact"
+              href="#order"
               data-testid="hero-book-btn"
               className="inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-[#1A3B26] text-[#F9F3EA] font-medium transition-all hover:bg-[#112618] hover:-translate-y-0.5"
             >

@@ -14,7 +14,7 @@ export const content = {
       gallery: "Gallery",
       offer: "Offer",
       contact: "Contact",
-      book: "Book a Table",
+      book: "Order Online",
     },
     scrollHint: "Swipe to explore",
     hero: {
@@ -22,7 +22,7 @@ export const content = {
       title: "Vietnamese Street Food in the Heart of Kraków",
       subtitle:
         "Fresh baguettes. Slow-cooked broths. Authentic Vietnamese flavors. Discover traditional Bánh Mì sandwiches, aromatic pho soups and comforting Asian specialties prepared with fresh ingredients and homemade sauces. Eat in • Take away • Delivery.",
-      primary: "Book a Table",
+      primary: "Order Online",
       secondary: "View Menu",
     },
     about: {
@@ -111,10 +111,28 @@ export const content = {
         { icon: "Users", title: "Group Friendly", text: "Perfect for lunch breaks, friends and family gatherings." },
       ],
     },
+    orderOnline: {
+      overline: "Order Online — Zamów Online",
+      title: "Order delivery to your door",
+      subtitle: "Choose your favorite delivery platform and enjoy authentic Vietnamese street food at home.",
+      orderNow: "Fast delivery available",
+      visitSite: "Order now",
+      note: "🚴 Free delivery on orders over 40 PLN on selected platforms",
+    },
     reservation: {
-      overline: "Đặt Bàn — Reservations",
-      title: "Book your table",
-      body: "Reserve your spot at Banh Mi Dzień Dobry and enjoy authentic Vietnamese street food in Kraków. Fill in the details below and we'll keep a seat ready for you.",
+      overline: "Order Delivery — Zamów Dostawę",
+      title: "Order Online",
+      body: "Choose your favorite delivery platform and enjoy authentic Vietnamese street food at home or pick it up in person.",
+      deliveryTitle: "Fast & Easy Ordering",
+      deliverySubtitle: "Select your preferred platform for delivery or pickup",
+      delivery: "Delivery",
+      deliveryTime: "30-45 min",
+      pickup: "Pickup",
+      pickupTime: "15-20 min",
+      orderVia: "Choose Your Platform",
+      orderNow: "Order",
+      visitUs: "Prefer to visit us in person? See our location and opening hours",
+      seeContact: "Contact & Hours",
       fields: {
         name: "Full name",
         phone: "Phone number",
@@ -128,11 +146,23 @@ export const content = {
       success: "Cảm ơn! Your reservation request has been received.",
       hoursTitle: "Opening Hours",
       hours: [
-        { day: "Monday – Friday", time: "11:00 – 21:00" },
-        { day: "Saturday – Sunday", time: "12:00 – 22:00" },
+        { day: "Monday – Friday", time: "11:00 – 19:00" },
+        { day: "Saturday – Sunday", time: "Closed" },
       ],
       contactTitle: "Find Us",
       openMap: "Open in Google Maps",
+    },
+    contact: {
+      overline: "Contact & Location — Kontakt i Lokalizacja",
+      title: "Visit Us",
+      subtitle: "Find us in Kraków or get in touch for any questions about our Vietnamese street food.",
+      hoursTitle: "Opening Hours",
+      hours: [
+        { day: "Monday – Friday", time: "11:00 – 19:00" },
+        { day: "Saturday – Sunday", time: "Closed" },
+      ],
+      locationTitle: "Location",
+      openMap: "Get Directions",
     },
     footer: {
       tagline: "Fresh baguettes. Slow-cooked broths. Authentic Vietnamese flavors.",
@@ -149,7 +179,7 @@ export const content = {
       gallery: "Galeria",
       offer: "Oferta",
       contact: "Kontakt",
-      book: "Rezerwuj stolik",
+      book: "Zamów Online",
     },
     scrollHint: "Przesuń, aby zobaczyć więcej",
     hero: {
@@ -157,7 +187,7 @@ export const content = {
       title: "Wietnamskie street food w sercu Krakowa",
       subtitle:
         "Świeże bagietki. Wolno gotowane buliony. Autentyczne wietnamskie smaki. Odkryj tradycyjne kanapki Bánh Mì, aromatyczne zupy phở i azjatyckie specjały przygotowane ze świeżych składników i domowych sosów. Na miejscu • Na wynos • Dostawa.",
-      primary: "Rezerwuj stolik",
+      primary: "Zamów Online",
       secondary: "Zobacz menu",
     },
     about: {
@@ -246,10 +276,28 @@ export const content = {
         { icon: "Users", title: "Dla większych grup", text: "Idealne na lunch w pracy, spotkania z przyjaciółmi i rodziną." },
       ],
     },
+    orderOnline: {
+      overline: "Zamów Online",
+      title: "Zamów dostawę pod swoje drzwi",
+      subtitle: "Wybierz swoją ulubioną platformę dostaw i ciesz się autentycznym wietnamskim street foodem w domu.",
+      orderNow: "Szybka dostawa dostępna",
+      visitSite: "Zamów teraz",
+      note: "🚴 Darmowa dostawa przy zamówieniach powyżej 40 zł na wybranych platformach",
+    },
     reservation: {
-      overline: "Rezerwacja",
-      title: "Zarezerwuj stolik",
-      body: "Zarezerwuj miejsce w Banh Mi Dzień Dobry i ciesz się autentycznym wietnamskim street foodem w Krakowie. Wypełnij dane, a my przygotujemy miejsce dla Ciebie.",
+      overline: "Zamów Dostawę",
+      title: "Zamów Online",
+      body: "Wybierz swoją ulubioną platformę dostaw i ciesz się autentycznym wietnamskim street foodem w domu lub odbierz osobiście.",
+      deliveryTitle: "Szybkie i Łatwe Zamawianie",
+      deliverySubtitle: "Wybierz preferowaną platformę do dostawy lub odbioru",
+      delivery: "Dostawa",
+      deliveryTime: "30-45 min",
+      pickup: "Odbiór",
+      pickupTime: "15-20 min",
+      orderVia: "Wybierz Platformę",
+      orderNow: "Zamów",
+      visitUs: "Wolisz odwiedzić nas osobiście? Zobacz naszą lokalizację i godziny otwarcia",
+      seeContact: "Kontakt i Godziny",
       fields: {
         name: "Imię i nazwisko",
         phone: "Numer telefonu",
@@ -263,11 +311,23 @@ export const content = {
       success: "Cảm ơn! Twoja prośba o rezerwację została przyjęta.",
       hoursTitle: "Godziny otwarcia",
       hours: [
-        { day: "Poniedziałek – Piątek", time: "11:00 – 21:00" },
-        { day: "Sobota – Niedziela", time: "12:00 – 22:00" },
+        { day: "Poniedziałek – Piątek", time: "11:00 – 19:00" },
+        { day: "Sobota – Niedziela", time: "Zamknięte" },
       ],
       contactTitle: "Znajdź nas",
       openMap: "Otwórz w Google Maps",
+    },
+    contact: {
+      overline: "Kontakt i Lokalizacja",
+      title: "Odwiedź Nas",
+      subtitle: "Znajdź nas w Krakowie lub skontaktuj się z nami w sprawie naszego wietnamskiego street foodu.",
+      hoursTitle: "Godziny otwarcia",
+      hours: [
+        { day: "Poniedziałek – Piątek", time: "11:00 – 19:00" },
+        { day: "Sobota – Niedziela", time: "Zamknięte" },
+      ],
+      locationTitle: "Lokalizacja",
+      openMap: "Uzyskaj Wskazówki",
     },
     footer: {
       tagline: "Świeże bagietki. Wolno gotowane buliony. Autentyczne wietnamskie smaki.",
@@ -284,7 +344,7 @@ export const content = {
       gallery: "Galerie",
       offer: "Angebot",
       contact: "Kontakt",
-      book: "Tisch reservieren",
+      book: "Online Bestellen",
     },
     scrollHint: "Wischen, um mehr zu sehen",
     hero: {
@@ -292,7 +352,7 @@ export const content = {
       title: "Vietnamesisches Streetfood im Herzen von Krakau",
       subtitle:
         "Frische Baguettes. Langsam gekochte Brühen. Authentische vietnamesische Aromen. Entdecke traditionelle Bánh-Mì-Sandwiches, aromatische Pho-Suppen und asiatische Spezialitäten aus frischen Zutaten und hausgemachten Saucen. Vor Ort • Zum Mitnehmen • Lieferung.",
-      primary: "Tisch reservieren",
+      primary: "Online Bestellen",
       secondary: "Zur Speisekarte",
     },
     about: {
@@ -381,10 +441,28 @@ export const content = {
         { icon: "Users", title: "Für Gruppen", text: "Ideal für Mittagspausen, Freunde und Familientreffen." },
       ],
     },
+    orderOnline: {
+      overline: "Online Bestellen",
+      title: "Lieferung direkt zu dir nach Hause",
+      subtitle: "Wähle deine bevorzugte Lieferplattform und genieße authentisches vietnamesisches Streetfood zu Hause.",
+      orderNow: "Schnelle Lieferung verfügbar",
+      visitSite: "Jetzt bestellen",
+      note: "🚴 Kostenlose Lieferung bei Bestellungen über 40 PLN auf ausgewählten Plattformen",
+    },
     reservation: {
-      overline: "Reservierung",
-      title: "Reserviere deinen Tisch",
-      body: "Reserviere deinen Platz im Banh Mi Dzień Dobry und genieße authentisches vietnamesisches Streetfood in Krakau. Fülle die Details aus und wir halten einen Platz für dich frei.",
+      overline: "Lieferung Bestellen",
+      title: "Online Bestellen",
+      body: "Wähle deine bevorzugte Lieferplattform und genieße authentisches vietnamesisches Streetfood zu Hause oder hole es persönlich ab.",
+      deliveryTitle: "Schnell & Einfach Bestellen",
+      deliverySubtitle: "Wähle deine bevorzugte Plattform für Lieferung oder Abholung",
+      delivery: "Lieferung",
+      deliveryTime: "30-45 Min",
+      pickup: "Abholung",
+      pickupTime: "15-20 Min",
+      orderVia: "Wähle Deine Plattform",
+      orderNow: "Bestellen",
+      visitUs: "Möchtest du uns persönlich besuchen? Siehe unseren Standort und Öffnungszeiten",
+      seeContact: "Kontakt & Zeiten",
       fields: {
         name: "Vollständiger Name",
         phone: "Telefonnummer",
@@ -398,11 +476,23 @@ export const content = {
       success: "Cảm ơn! Deine Reservierungsanfrage ist eingegangen.",
       hoursTitle: "Öffnungszeiten",
       hours: [
-        { day: "Montag – Freitag", time: "11:00 – 21:00" },
-        { day: "Samstag – Sonntag", time: "12:00 – 22:00" },
+        { day: "Montag – Freitag", time: "11:00 – 19:00" },
+        { day: "Samstag – Sonntag", time: "Geschlossen" },
       ],
       contactTitle: "Finde uns",
       openMap: "In Google Maps öffnen",
+    },
+    contact: {
+      overline: "Kontakt & Standort",
+      title: "Besuche Uns",
+      subtitle: "Finde uns in Krakau oder kontaktiere uns bei Fragen zu unserem vietnamesischen Streetfood.",
+      hoursTitle: "Öffnungszeiten",
+      hours: [
+        { day: "Montag – Freitag", time: "11:00 – 19:00" },
+        { day: "Samstag – Sonntag", time: "Geschlossen" },
+      ],
+      locationTitle: "Standort",
+      openMap: "Route Anzeigen",
     },
     footer: {
       tagline: "Frische Baguettes. Langsam gekochte Brühen. Authentische vietnamesische Aromen.",
@@ -417,17 +507,17 @@ export const CONTACT = {
   name: "Banh Mi Dzień Dobry",
   street: "Mazowiecka 26B",
   city: "30-019 Kraków",
-  phone: "+48 535 431 878",
-  phoneHref: "tel:+48535431878",
-  facebook: "https://www.facebook.com/",
+  phone: "+48 729 641 438",
+  phoneHref: "tel:+48729641438",
+  facebook: "https://www.facebook.com/BanhMi.DzienDobry",
   mapUrl: "https://www.google.com/maps/search/?api=1&query=Banh+Mi+Dzie%C5%84+Dobry+Mazowiecka+26B+Krak%C3%B3w",
 };
 
 // Restaurant working hours used to generate reservation time slots.
 // Mon–Fri (getDay 1-5) and Sat/Sun (getDay 0,6).
 export const HOURS = {
-  weekday: { open: "11:00", close: "21:00" },
-  weekend: { open: "12:00", close: "22:00" },
+  weekday: { open: "11:00", close: "19:00" },
+  weekend: { open: null, close: null }, // Closed on weekends
 };
 
 export const MEDIA = {
