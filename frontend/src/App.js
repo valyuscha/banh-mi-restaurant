@@ -10,6 +10,7 @@ import OfferSection from "@/components/OfferSection";
 import OrderOnline from "@/components/OrderOnline";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import LinkedInWatermark from "@/components/LinkedInWatermark";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Contact />
         </main>
         <Footer />
+        <LinkedInWatermark />
         <Toaster
           position="bottom-right"
           toastOptions={{
