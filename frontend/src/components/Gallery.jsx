@@ -35,7 +35,7 @@ const Gallery = () => {
         <div className="md:hidden mt-10">
           <div
             data-testid="gallery-carousel"
-            className="flex gap-4 -mx-6 px-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-1 items-stretch"
+            className="flex gap-4 -mx-6 px-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-1 items-stretch max-w-none"
           >
             {MEDIA.gallery.map((img, i) => (
               <div

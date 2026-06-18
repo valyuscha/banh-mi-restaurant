@@ -50,7 +50,7 @@ const OfferSection = () => {
         <div className="sm:hidden mt-12">
           <div
             data-testid="offer-carousel"
-            className="flex gap-5 -mx-6 px-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-1 items-stretch"
+            className="flex gap-5 -mx-6 px-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-1 items-stretch max-w-none"
           >
             {t.offer.items.map((item, i) => (
               <OfferCard
